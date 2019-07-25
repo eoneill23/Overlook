@@ -1,6 +1,43 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: pink;
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: $primary-background;
+  height: 100vh;
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+}
+
+.body-span__date-today {
+  font-size: 1.5em;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+}
+
+nav {
+  .nav-button {
+    background-color: red;
+    border: none;
+    display: inline;
+    float: left;
+    font-size: 2em;
+    list-style-type: none;
+    padding: 0;
+    width: 25%;
+  } 
+
+  :hover {
+    background-color: purple;
+  }
 }
