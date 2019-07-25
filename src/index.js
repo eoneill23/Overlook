@@ -1,13 +1,46 @@
-// This is the JavaScript entry file - your code begins here
-// Do not delete or rename this file ********
-
-// An example of how you import jQuery into a JS file if you use jQuery in that file
 import $ from 'jquery';
-
-// An example of how you tell webpack to use a CSS (SCSS) file
 import './css/base.scss';
 
-// An example of how you tell webpack to use an image (also need to link to it in the index.html)
-import './images/turing-logo.png'
+import DOMupdates from '../src/DOMupdates.js';
 
-console.log('This is the JavaScript entry file - your code begins here.');
+$(window).on('load', () => {
+
+const date = () => {
+  const months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let current_datetime = new Date();
+  let formatted_date =
+    days[current_datetime.getDay()] +
+    " - " +
+    months[current_datetime.getMonth()] +
+    " " +
+    current_datetime.getDate() +
+    ", " +
+    current_datetime.getFullYear();
+    DOMupdates.displayDate(formatted_date)
+  return formatted_date;
+};
+  date();
+})
+
