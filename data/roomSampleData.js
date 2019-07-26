@@ -10,3 +10,5 @@ const rooms = [
   {"number":9,"roomType":"residential suite","bidet":true,"bedSize":"twin","numBeds":1,"costPerNight":327.76},
   {"number":10,"roomType":"single room","bidet":false,"bedSize":"queen","numBeds":2,"costPerNight":296.48}
 ]
+
+export default rooms

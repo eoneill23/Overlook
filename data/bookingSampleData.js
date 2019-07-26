@@ -10,7 +10,9 @@ const bookings = [
     {"userID":18,"date":"2019/09/26","roomNumber":36},
     {"userID":69,"date":"2019/09/27","roomNumber":12},
     {"userID":25,"date":"2019/09/01","roomNumber":44},
-    {"userID":13,"date":"2019/09/29","roomNumber":34}
+    {"userID":13,"date":"2019/09/29","roomNumber":34},
+    {"userID":4,"date":"2019/10/18","roomNumber":5},
+    {"userID":1,"date":"2019/09/29","roomNumber":34}
 ]
 
 export default bookings;
