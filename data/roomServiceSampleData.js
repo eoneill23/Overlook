@@ -9,5 +9,8 @@ const roomServices = [
   {"userID":86,"date":"2019/09/16","food":"Incredible Concrete Sandwich","totalCost":24.77},
   {"userID":55,"date":"2019/10/18","food":"Unbranded Wooden Sandwich","totalCost":7.95},
   {"userID":55,"date":"2019/10/17","food":"Intelligent Fresh Sandwich","totalCost":12.32},
-  {"userID":97,"date":"2019/08/06","food":"Unbranded Wooden Sandwich","totalCost":12.83}
+  {"userID":97,"date":"2019/08/06","food":"Unbranded Wooden Sandwich","totalCost":12.83},
+  {"userID":1,"date":"2019/08/06","food":"Unbranded Wooden Sandwich","totalCost":12.83}
 ]
+
+export default roomServices
