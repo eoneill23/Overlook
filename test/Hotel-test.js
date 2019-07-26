@@ -31,11 +31,21 @@ describe('Hotel', () => {
   })
 
   it('should return rooms available for today', () => {
-    expect(hotel.returnRoomsAvailable("2019/10/18")).to.equal(9);
+    expect(hotel.returnNumRoomsAvailable("2019/10/18")).to.equal(9);
   })
 
-  it('should instantiate a new customer', () => {
-    hotel.assignCurrentCustomer('Matilde Larson');
+  it('should instantiate an existing customer', () => {
+    hotel.instantiateExistingCustomer('Matilde Larson');
     expect(hotel.currentCustomer.name).to.equal('Matilde Larson');
+  })
+
+  it('should be able to create a brand new customer', () => {
+    hotel.createNewCustomer('John Doe');
+    expect(hotel.currentCustomer.name).to.equal('John Doe')
+  })
+
+  it('should show which rooms are available to book on a specified date', () => {
+    hotel.findAvailableRooms("2019/10/18")
+    expect(hotel.availableRooms.length).to.equal(9)
   })
 })

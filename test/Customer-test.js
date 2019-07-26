@@ -1,0 +1,36 @@
+import chai from 'chai';
+const expect = chai.expect;
+
+import customerData from '../data/customerSampleData.js'
+import roomData from '../data/roomSampleData.js'
+import bookingData from '../data/bookingSampleData.js'
+import roomServiceData from '../data/roomServiceSampleData.js'
+import Customer from '../src/Customer.js'
+import Hotel from '../src/Hotel.js'
+
+// chai.use(spies);
+
+// chai.spy.on(DOMupdates, ['clearBoard'], () => {});
+
+describe('Hotel', () => {
+  let hotel, customer;
+  beforeEach(() => {
+    hotel = new Hotel({customerData, roomData, bookingData, roomServiceData});
+    hotel.instantiateExistingCustomer("Matilde Larson")
+  });
+
+  it('should be a function', () => {
+    expect(Customer).to.be.a('function');
+    expect(hotel.currentCustomer).to.be.an.instanceof(Customer);
+    expect(hotel.currentCustomer.name).to.equal("Matilde Larson");
+	});
+	
+	it('should return the cost of room service on a specific day', () => {
+		expect(hotel.currentCustomer.returnRoomServiceCostOnDate("2019/09/26").to.equal(38.4))
+	});
+
+  // it('should give a breakdown of dates and cost of room services', () => {
+	// 	hotel.currentCustomer.displayRoomServiceData();
+		
+  // })
+})
