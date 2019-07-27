@@ -67,7 +67,7 @@ class Hotel {
 
   instantiateExistingCustomer(name) {
     let foundCustomer = this.customers.find(customer => {
-      return customer.name === name
+      return customer.name.toLowerCase() === name.toLowerCase()
     })
     if (foundCustomer === undefined) {
       DOMupdates.displayNoExistingCustomerMsg(name)
@@ -93,7 +93,8 @@ class Hotel {
 
   findAvailableRooms(date) {
     let occupiedRooms = this.getDataByDate(date, 'bookings')
-    this.availableRooms = this.rooms.filter(room => !occupiedRooms.some(occupiedRoom => occupiedRoom.roomNumber === room.number))
+    return this.rooms.filter(room => !occupiedRooms.some(occupiedRoom => occupiedRoom.roomNumber === room.number))
+    console.log(this.availableRooms)
   }
 
   findMostBookedDate() {
@@ -128,7 +129,7 @@ class Hotel {
 
   // createBooking() {
   //   if (this.filterThroughCurrentCustomerInfo(this.currentDate, 'bookings')) {
-        //filter through current customer bookings for current date, if length is 0, able to create new one
+  //       filter through current customer bookings for current date, if length is 0, able to create new one
   //   }
   // }
 

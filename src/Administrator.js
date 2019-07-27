@@ -5,6 +5,8 @@ class Administrator {
       this.bookings = allData.bookingData;
       this.roomServices = allData.roomServiceData;
     }
+
+    
 }
 
 export default Administrator;

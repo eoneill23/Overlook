@@ -59,9 +59,9 @@ describe('Hotel', () => {
     expect(hotel.findDateWithMostAvailableRooms()).to.equal("2019/10/18")
   })
 
-  // it('should be able to book a room', () => {
-  //   hotel.createBooking()
-  //   console.log(hotel.currentCustomer)
-  //   expect(hotel.currentCustomer.bookingInfo.length).to.equal(2)
-  // })
+  it('should be able to book a room', () => {
+    hotel.createBooking()
+    console.log(hotel.currentCustomer)
+    expect(hotel.currentCustomer.bookingInfo.length).to.equal(2)
+  })
 })
