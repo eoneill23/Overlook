@@ -7,11 +7,11 @@ import bookingData from '../data/bookingSampleData.js';
 import roomServiceData from '../data/roomServiceSampleData.js';
 import Administrator from '../src/Administrator.js';
 
-// import spies from 'chai-spies';
-// import DOMupdates from '../src/DOMupdates.js'
-// chai.use(spies);
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js'
+chai.use(spies);
 
-// chai.spy.on(DOMupdates, [''], () => {});
+chai.spy.on(DOMupdates, ['displayCreateBookingBtn'], () => {});
 
 describe('Administrator', () => {
   let admin;
@@ -29,10 +29,9 @@ describe('Administrator', () => {
     expect(admin.currentCustomer.name).to.equal('John Doe')
   })
 
-  // it('should be able to book a room', () => {
-  //   hotel.createBooking()
-  //   console.log(hotel.currentCustomer)
-  //   expect(hotel.currentCustomer.bookingInfo.length).to.equal(2)
-  // })
+  it('should be able to book a room', () => {
+    admin.validateBooking('2019/09/28');
+    expect(DOMupdates.displayCreateBookingBtn).to.have.been.called(1);
+  })
 
 })
