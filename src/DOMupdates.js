@@ -32,6 +32,34 @@ const DOMupdates = {
   displayCurrentCustomerName(name) {
     $('.header-span__current-customer').text(name);
     $('.header-hide').show();
+  },
+
+  displayCreateBookingBtn() {
+    //paragraph.show() that says 'you currently don't have a booking today. would you like to create one?
+    //$(.main-button__show-booking).show()
+  },
+
+  appendAvailableRooms(availableRooms) {
+    console.log(availableRooms)
+    availableRooms.forEach(room => {
+      $('.main-table__avail-rooms').append(
+      `<tr class="main-tr__avail-rooms data-id="${room.number}">
+      <td class="main-td__avail-rooms id="td-room-num" data-id="${room.number}">${room.number}</td>
+      <td class="main-td__avail-rooms" id="td-room-type" data-id="${room.number}">${room.roomType}</td>
+      <td class="main-td__avail-rooms" id="td-bidet" data-id="${room.number}">${room.bidet}</td>
+      <td class="main-td__avail-rooms" id="td-bed-size" data-id="${room.number}">${room.bedSize}</td>
+      <td class="main-td__avail-rooms" id="td-num-beds" data-id="${room.number}">${room.numBeds}</td>
+      <td class="main-td__avail-rooms" id="td-cost" data-id="${room.number}">${room.costPerNight}</td>
+      </tr>`)
+    })
+  },
+
+  displayBookingMsg(correctRoom, fullName) {
+    console.log(correctRoom)
+    let firstName = fullName.split(' ')[0];
+    $('.main_span__first-name').text(firstName);
+    $('.main_span__room-number').text(correctRoom.number);
+    $('.main_span__cost').text(correctRoom.costPerNight)
   }
 
 }

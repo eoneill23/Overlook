@@ -57,12 +57,48 @@ main {
 
 .main-section {
   margin: 30px auto 0 auto;
-  height: 80%;
-  width: 90%;
+  height: 90%;
+  width: 94%;
   background-color: lightgray;
-  opacity: .7;
+  opacity: .8;
 }
 
 .main-customer-div {
   height: 100px;
+}
+
+.main-table__avail-rooms {
+  background-color: white; 
+  height: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  overflow: scroll;
+  
+  .main-th__avail-rooms {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+  }
+  
+  .main-tr__avail-rooms {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 5px 0 5px 0;
+  }
+
+  .main-td__avail-rooms {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    text-align: center;
+    width: 20%
+  }
+
+  :hover {
+    background-color: purple;
+  }
 }

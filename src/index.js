@@ -1,8 +1,7 @@
 import $ from 'jquery';
 import './css/base.scss';
 
-import Hotel from '../src/Hotel.js'
-// import Administrator from '../src/Administrator.js';
+import Administrator from '../src/Administrator.js';
 import DOMupdates from '../src/DOMupdates.js';
 
 let customerData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/users/users').then((response) => {
@@ -18,7 +17,7 @@ let roomServiceData = fetch('https://fe-apps.herokuapp.com/api/v1/overlook/1904/
   return response.json()
 });
 
-var hotel;
+var admin;
 let combinedData = {'customerData': {}, 'roomData': {}, 'bookingData': {}, 'roomServiceData': {}}
 
 Promise.all([customerData, roomData, bookingData, roomServiceData])
@@ -27,11 +26,11 @@ Promise.all([customerData, roomData, bookingData, roomServiceData])
     combinedData['roomData'] = values[1].rooms;
     combinedData['bookingData'] = values[2].bookings;
     combinedData['roomServiceData'] = values[3].roomServices;
-    hotel = new Hotel(combinedData);
-    hotel.returnRevenueForToday(hotel.currentDate);
-    hotel.returnPctRoomsOccupied(hotel.currentDate);
-    hotel.returnNumRoomsAvailable(hotel.currentDate);
-    console.log(hotel)
+    admin = new Administrator(combinedData);
+    admin.hotel.returnRevenueForToday(admin.hotel.currentDate);
+    admin.hotel.returnPctRoomsOccupied(admin.hotel.currentDate);
+    admin.hotel.returnNumRoomsAvailable(admin.hotel.currentDate);
+    console.log(admin)
     return combinedData;
   })
   .catch(error => console.log(`Error in promises ${error}`));
@@ -109,15 +108,39 @@ $('.nav-button__customer-tab').on('click', () => {
 
 $('.main-button__existingCustomer-search').on('click', () => {
   event.preventDefault();
-  let name = $('.main-input__existingCustomer-search').val()
-  hotel.instantiateExistingCustomer(name);
-  $('.main-input__existingCustomer-search').val('')
+  let name = $('.main-input__existingCustomer-search').val();
+  console.log(admin.hotel)
+  admin.instantiateExistingCustomer(name);
+  $('.main-input__existingCustomer-search').val('');
 })
 
 $('.main-button__create-new-customer').on('click', () => {
   event.preventDefault();
   let name = $('.main-input__create-new-customer').val();
-  hotel.createNewCustomer(name);
+  admin.createNewCustomer(name);
   DOMupdates.displayCurrentCustomerName(name)
   $('.main-input__create-new-customer').val('');
 })
+
+$('.main-button__show-booking').on('click', () => {
+  event.preventDefault();
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms);
+})
+
+$('.main-section__rooms-page').on('click', (e) => {
+  if (e.target.closest('.main-td__avail-rooms')) {
+    let clickedElement = e.target;
+    let correctId = $(clickedElement).attr("data-id")
+    let correctRoomInfo = findClickedElementData(correctId)
+    // console.log(correctRoomInfo)
+    DOMupdates.displayBookingMsg(correctRoomInfo, admin.currentCustomer.name)
+  } else {
+    return
+  }
+})
+
+function findClickedElementData(correctId) {
+  return admin.rooms.find(room => {
+    return room.number == correctId;
+  })
+}
