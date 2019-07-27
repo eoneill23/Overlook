@@ -77,6 +77,8 @@ date();
 
 $(document).ready(() => {
   $('.main-hide').hide();
+  $('.main-para__errorMsg').hide();
+  $('.header-hide').hide();
 });
 
 $('.nav-button__main-tab').on('click', () => {
@@ -106,6 +108,16 @@ $('.nav-button__customer-tab').on('click', () => {
 })
 
 $('.main-button__existingCustomer-search').on('click', () => {
+  event.preventDefault();
   let name = $('.main-input__existingCustomer-search').val()
   hotel.instantiateExistingCustomer(name);
+  $('.main-input__existingCustomer-search').val('')
+})
+
+$('.main-button__create-new-customer').on('click', () => {
+  event.preventDefault();
+  let name = $('.main-input__create-new-customer').val();
+  hotel.createNewCustomer(name);
+  DOMupdates.displayCurrentCustomerName(name)
+  $('.main-input__create-new-customer').val('');
 })

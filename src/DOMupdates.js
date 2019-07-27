@@ -3,7 +3,7 @@ import $ from 'jquery';
 const DOMupdates = {
 
   displayDate(date) {
-    $('.body-span__date-today').text(date)
+    $('.header-span__date-today').text(date)
   },
 
   displayRevenueForToday(cost) {
@@ -17,7 +17,22 @@ const DOMupdates = {
   displayAvailRoomsForToday(numRooms) {
     $('.main-span__rooms-available').text(numRooms)
   },
-  // main-span__rooms-available
+
+  displayNoExistingCustomerMsg(name) {
+    $('.main-input__existingCustomer-search').css({"border-color": "red", "border-width":"1px", "border-style":"solid"});
+    $('.main-span_errorName').text(name);
+    $('.main-para__errorMsg').show();
+    $('.error-show').show();
+    setTimeout( () => {
+      $('.main-para__errorMsg').hide();
+      $('.main-input__existingCustomer-search').css({"border-color": "", "border-width":"", "border-style":""});
+    }, 5000)
+  },
+
+  displayCurrentCustomerName(name) {
+    $('.header-span__current-customer').text(name);
+    $('.header-hide').show();
+  }
 
 }
 

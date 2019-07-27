@@ -72,11 +72,12 @@ class Hotel {
     })
     if (foundCustomer === undefined) {
       DOMupdates.displayNoExistingCustomerMsg(name)
-      return false
+      // return false
     } else {
       let customerBookingData = this.findCustomerInfo(foundCustomer.id, 'bookings');
       let customerRoomServiceData = this.findCustomerInfo(foundCustomer.id, 'roomServices');
       this.currentCustomer = new Customer(foundCustomer.name, foundCustomer.id, this.currentDate, customerBookingData, customerRoomServiceData);
+      DOMupdates.displayCurrentCustomerName(this.currentCustomer.name)
     }
   }
 

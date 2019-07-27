@@ -6,7 +6,8 @@
   <body>
     <header>
       <h1>Overlook Hotel</h1>
-      <span class="body-span__date-today">Today's date</span>
+      <p class="header-p__current-customer header-hide">Current customer: <span class="header-span__current-customer header-hide"></span></p>
+      <span class="header-span__date-today">Today's date</span>
     </header>
     <nav>
       <button class="nav-button__main-tab nav-button">Main</button>
@@ -24,9 +25,18 @@
       <section class="main-section__orders-page main-section main-hide">Order content goes here</section>
       <section class="main-section__customer-page main-section main-hide">
         <form class="main-form__existingCustomer-search">
-          <label for="existingCustomerSearch">Search for a customer</label>
-          <input class="main-input__existingCustomer-search" id="existingCustomerSearch">
-          <button class="main-button__existingCustomer-search">Submit</button>
+          <div class="main-div__existingCustomer-search main-customer-div">
+            <label for="existingCustomer-search">Search for an existing customer</label>
+            <input class="main-input__existingCustomer-search" id="existingCustomerSearch">
+            <button class="main-button__existingCustomer-search">Submit</button>
+            <p class="main-para__errorMsg">Sorry, we don't have <span class="main-span_errorName"></span> in our database.
+            Please check your spelling or enter the customer into the database below!</p>
+          </div>
+          <div class="error-show main-customer-div">
+            <label for="create-new-customer">Create a new customer</label>
+            <input class="main-input__create-new-customer" id="createNewCustomer">
+            <button class="main-button__create-new-customer">Submit</button>
+          </div>
         </form>
       </section>
     </main>

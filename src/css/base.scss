@@ -29,6 +29,10 @@ header {
   padding: 1em;
 }
 
+.header-p__current-customer {
+  margin-bottom: 0;
+}
+
 nav {
   height: 50px; 
 
@@ -57,4 +61,8 @@ main {
   width: 90%;
   background-color: lightgray;
   opacity: .7;
+}
+
+.main-customer-div {
+  height: 100px;
 }
