@@ -8,9 +8,11 @@ import roomServiceData from '../data/roomServiceSampleData.js'
 import Customer from '../src/Customer.js'
 import Hotel from '../src/Hotel.js'
 
+// import spies from 'chai-spies';
+// import DOMupdates from '../src/DOMupdates.js'
 // chai.use(spies);
 
-// chai.spy.on(DOMupdates, ['clearBoard'], () => {});
+// chai.spy.on(DOMupdates, ['displayNoExistingCustomerMsg'], () => {});
 
 describe('Hotel', () => {
   let hotel, customer;

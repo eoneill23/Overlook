@@ -47,7 +47,6 @@ class Hotel {
     let totalCostToday = bookingCost += correctRoomServiceInfo.reduce((totalRoomServiceCost, roomService) => {
       return totalRoomServiceCost += roomService.totalCost
     }, 0)
-    console.log('hello')
     DOMupdates.displayRevenueForToday(totalCostToday.toFixed(2));
     return Number(totalCostToday.toFixed(2));
   }
@@ -77,13 +76,15 @@ class Hotel {
       let customerBookingData = this.findCustomerInfo(foundCustomer.id, 'bookings');
       let customerRoomServiceData = this.findCustomerInfo(foundCustomer.id, 'roomServices');
       this.currentCustomer = new Customer(foundCustomer.name, foundCustomer.id, this.currentDate, customerBookingData, customerRoomServiceData);
+      this.customers.push(this.currentCustomer);
       DOMupdates.displayCurrentCustomerName(this.currentCustomer.name)
     }
   }
 
   createNewCustomer(name) {
     let newId = this.customers.length + 1;
-    this.currentCustomer = new Customer(name, newId, this.currentDate, [], [])
+    this.currentCustomer = new Customer(name, newId, this.currentDate, [], []);
+    this.customers.push(this.currentCustomer);
   }
 
   findCustomerInfo(id, property) {
@@ -93,6 +94,21 @@ class Hotel {
   findAvailableRooms(date) {
     let occupiedRooms = this.getDataByDate(date, 'bookings')
     this.availableRooms = this.rooms.filter(room => !occupiedRooms.some(occupiedRoom => occupiedRoom.roomNumber === room.number))
+  }
+
+  findMostBookedDate() {
+    let bookingCounter = this.bookings.reduce((acc, booking) => {
+      if (!acc[booking.date]) {
+        acc[booking.date] = 1
+      } else {
+        acc[booking.date] ++
+      }
+      return acc;
+    }, {})
+    let keys = Object.keys(bookingCounter);
+    return keys.reduce((acc, key) => {
+      return bookingCounter[acc] > bookingCounter[key] ? acc : key;
+    }, '');
   }
 
   // createBooking() {

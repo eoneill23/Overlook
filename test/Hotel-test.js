@@ -11,7 +11,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js'
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['displayPctOccupiedForToday', 'displayRevenueForToday', 'displayAvailRoomsForToday'], () => {});
+chai.spy.on(DOMupdates, ['displayPctOccupiedForToday', 'displayRevenueForToday', 'displayAvailRoomsForToday', 'displayNoExistingCustomerMsg', 'displayCurrentCustomerName'], () => {});
 
 describe('Hotel', () => {
   let hotel;
@@ -49,6 +49,10 @@ describe('Hotel', () => {
   it('should show which rooms are available to book on a specified date', () => {
     hotel.findAvailableRooms("2019/10/18")
     expect(hotel.availableRooms.length).to.equal(9)
+  })
+
+  it('should show the most popular booking date', () => {
+    expect(hotel.findMostBookedDate()).to.equal("2019/09/01");
   })
 
   // it('should be able to book a room', () => {
