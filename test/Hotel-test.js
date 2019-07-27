@@ -26,7 +26,7 @@ describe('Hotel', () => {
   });
 
   it('should return the percentage of rooms occupied for today', () => {
-    expect(hotel.returnPctRoomsOccupied("2019/10/19")).to.equal(10);
+    expect(hotel.returnPctRoomsOccupied("2019/10/19")).to.equal(20);
   })
 
   it('should return revenue for today', () => {
@@ -53,6 +53,10 @@ describe('Hotel', () => {
 
   it('should show the most popular booking date', () => {
     expect(hotel.findMostBookedDate()).to.equal("2019/09/01");
+  })
+
+  it('should show the date with the most available rooms', () => {
+    expect(hotel.findDateWithMostAvailableRooms()).to.equal("2019/10/18")
   })
 
   // it('should be able to book a room', () => {

@@ -111,9 +111,24 @@ class Hotel {
     }, '');
   }
 
+  findDateWithMostAvailableRooms() {
+    let bookingCounter = this.bookings.reduce((acc, booking) => {
+      if (!acc[booking.date]) {
+        acc[booking.date] = 1
+      } else {
+        acc[booking.date] ++
+      }
+      return acc;
+    }, {})
+    let keys = Object.keys(bookingCounter);
+    return keys.reduce((acc, key) => {
+      return bookingCounter[acc] < bookingCounter[key] ? acc : key;
+    }, '');
+  }
+
   // createBooking() {
   //   if (this.filterThroughCurrentCustomerInfo(this.currentDate, 'bookings')) {
-
+        //filter through current customer bookings for current date, if length is 0, able to create new one
   //   }
   // }
 
