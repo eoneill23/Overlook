@@ -27,7 +27,10 @@ Promise.all([customerData, roomData, bookingData, roomServiceData])
     combinedData['roomData'] = values[1].rooms;
     combinedData['bookingData'] = values[2].bookings;
     combinedData['roomServiceData'] = values[3].roomServices;
-    hotel = new Hotel(combinedData)
+    hotel = new Hotel(combinedData);
+    hotel.returnRevenueForToday(hotel.currentDate);
+    hotel.returnPctRoomsOccupied(hotel.currentDate);
+    hotel.returnNumRoomsAvailable(hotel.currentDate);
     console.log(hotel)
     return combinedData;
   })
@@ -70,3 +73,39 @@ const date = () => {
   return formatted_date;
 };
 date();
+
+
+$(document).ready(() => {
+  $('.main-hide').hide();
+});
+
+$('.nav-button__main-tab').on('click', () => {
+  $('.main-hide').hide();
+  $('.main-section__main-page').show();
+});
+
+$('.nav-button__rooms-tab').on('click', () => {
+  $('.main-section__main-page').hide();
+  $('.main-section__orders-page').hide();
+  $('.main-section__customer-page').hide();
+  $('.main-section__rooms-page').show();
+})
+
+$('.nav-button__orders-tab').on('click', () => {
+  $('.main-section__main-page').hide();
+  $('.main-section__rooms-page').hide();
+  $('.main-section__customer-page').hide();
+  $('.main-section__orders-page').show();
+})
+
+$('.nav-button__customer-tab').on('click', () => {
+  $('.main-section__main-page').hide();
+  $('.main-section__orders-page').hide();
+  $('.main-section__rooms-page').hide();
+  $('.main-section__customer-page').show();
+})
+
+$('.main-button__existingCustomer-search').on('click', () => {
+  let name = $('.main-input__existingCustomer-search').val()
+  hotel.instantiateExistingCustomer(name);
+})

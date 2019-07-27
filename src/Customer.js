@@ -12,11 +12,44 @@ class Customer {
   // }
 
   returnRoomServiceCostOnDate(date) {
-    let correctRoomServiceDate = this.getCategoryDataOnDate(date, 'roomServiceInfo')
+    if (this.validateCustomerInformation()) {
+    let correctRoomServiceInfo = this.getCategoryDataOnDate(date, 'roomServiceInfo');
+    return correctRoomServiceInfo.reduce((totalCost, service) => {
+      totalCost += service.totalCost
+      return totalCost;
+    }, 0)
+  } else {
+    //DOMupdates display error message
+    return null
+  }
+}
+
+  returnAllTimeRoomServiceCost() {
+    if (this.validateCustomerInformation()) {
+      return this.roomServiceInfo.reduce((totalCost, service) => {
+        totalCost += service.totalCost
+        return totalCost;
+      }, 0)
+    } else {
+      //DOM updates display error message or should it be in if/else
+      return null
+    }
   }
 
   getCategoryDataOnDate(date, property) {
-    return this[property].filter(property => property.date === date)
+    return this[property].filter(property => property.date === date);
+  }
+
+  validateCustomerInformation() {
+    if (this.bookingInfo.length === 0 && this.roomServiceInfo.length === 0) {
+      return false;
+    } else if (this.bookingInfo.length === 0) {
+      return false;
+    } else if (this.roomServiceInfo.length === 0) {
+      return false;
+    } else {
+      return true
+    }
   }
 }
 

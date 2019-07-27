@@ -7,7 +7,6 @@
     <header>
       <h1>Overlook Hotel</h1>
       <span class="body-span__date-today">Today's date</span>
-      <input type="text">
     </header>
     <nav>
       <button class="nav-button__main-tab nav-button">Main</button>
@@ -16,13 +15,20 @@
       <button class="nav-button__customer-tab nav-button">Customer</button>
     </nav>
     <main class="main-content">
-      <section class="main-section__main-page main-section">Main content goes here</section>
-      <section class="main-section__rooms-page main-section">Room content goes here</section>
-      <section class="main-section__orders-page main-section">Order content goes here</section>
-      <section class="main-section__customer-page main-section">Customer content goes here</section>
+      <section class="main-section__main-page main-section">
+        <p class="main-section__revenue-para">Today's revenue: $<span class="main-span__revenue"></span></p>
+        <p class="main-section__availRooms-para">There are <span class="main-span__rooms-available">X</span> rooms available today.</p>
+        <p class="main-section__occupancyPct-para">The hotel is currently at <span class="main-span__pct-occupied"></span>% capacity.</p>
+      </section>
+      <section class="main-section__rooms-page main-section main-hide">Room content goes here</section>
+      <section class="main-section__orders-page main-section main-hide">Order content goes here</section>
+      <section class="main-section__customer-page main-section main-hide">
+        <form class="main-form__existingCustomer-search">
+          <label for="existingCustomerSearch">Search for a customer</label>
+          <input class="main-input__existingCustomer-search" id="existingCustomerSearch">
+          <button class="main-button__existingCustomer-search">Submit</button>
+        </form>
+      </section>
     </main>
-    <!-- <img src="/images/turing-logo.png" alt="turing logo" height="100px" width="100px"> -->
-
-    <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   </body>
 </html>

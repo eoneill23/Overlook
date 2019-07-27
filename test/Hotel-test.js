@@ -7,14 +7,17 @@ import bookingData from '../data/bookingSampleData.js'
 import roomServiceData from '../data/roomServiceSampleData.js'
 import Hotel from '../src/Hotel.js'
 
-// chai.use(spies);
+import spies from 'chai-spies';
+import DOMupdates from '../src/DOMupdates.js'
+chai.use(spies);
 
-// chai.spy.on(DOMupdates, ['clearBoard'], () => {});
+chai.spy.on(DOMupdates, ['displayPctOccupiedForToday', 'displayRevenueForToday', 'displayAvailRoomsForToday'], () => {});
 
 describe('Hotel', () => {
   let hotel;
   beforeEach(() => {
     hotel = new Hotel({customerData, roomData, bookingData, roomServiceData});
+    hotel.instantiateExistingCustomer('Matilde Larson');
   });
 
   it('should be a function', () => {
@@ -35,7 +38,6 @@ describe('Hotel', () => {
   })
 
   it('should instantiate an existing customer', () => {
-    hotel.instantiateExistingCustomer('Matilde Larson');
     expect(hotel.currentCustomer.name).to.equal('Matilde Larson');
   })
 
@@ -48,4 +50,10 @@ describe('Hotel', () => {
     hotel.findAvailableRooms("2019/10/18")
     expect(hotel.availableRooms.length).to.equal(9)
   })
+
+  // it('should be able to book a room', () => {
+  //   hotel.createBooking()
+  //   console.log(hotel.currentCustomer)
+  //   expect(hotel.currentCustomer.bookingInfo.length).to.equal(2)
+  // })
 })

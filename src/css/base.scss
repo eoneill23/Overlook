@@ -1,14 +1,17 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: pink;
+$primary-background: white;
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: $primary-background;
+  background-image: url('../images/hotel-background.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
   height: 100vh;
   margin: 0;
+  position: relative;
 }
 
 h1 {
@@ -20,18 +23,20 @@ h1 {
 }
 
 header {
+  background-color: $primary-background;
   display: flex;
   justify-content: space-between;
   padding: 1em;
 }
 
 nav {
+  height: 50px; 
+
   .nav-button {
-    background-color: red;
-    border: none;
     display: inline;
     float: left;
     font-size: 2em;
+    height: 50px;
     list-style-type: none;
     padding: 0;
     width: 25%;
@@ -40,4 +45,16 @@ nav {
   :hover {
     background-color: purple;
   }
+}
+
+main {
+  height: 91%;
+}
+
+.main-section {
+  margin: 30px auto 0 auto;
+  height: 80%;
+  width: 90%;
+  background-color: lightgray;
+  opacity: .7;
 }

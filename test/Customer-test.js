@@ -26,7 +26,16 @@ describe('Hotel', () => {
 	});
 	
 	it('should return the cost of room service on a specific day', () => {
-		expect(hotel.currentCustomer.returnRoomServiceCostOnDate("2019/09/26").to.equal(38.4))
+		expect(hotel.currentCustomer.returnRoomServiceCostOnDate("2019/09/26")).to.equal(38.4);
+	});
+
+	it('should return the all time cost of a customers room services', () => {
+		expect(hotel.currentCustomer.returnAllTimeRoomServiceCost()).to.equal(51.23);
+	});
+
+	it('should throw an error if a customer has no information', () => {
+		hotel.createNewCustomer("Eric ONeill")
+		expect(hotel.currentCustomer.returnRoomServiceCostOnDate("2019/09/26")).to.equal(null);
 	});
 
   // it('should give a breakdown of dates and cost of room services', () => {

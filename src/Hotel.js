@@ -1,4 +1,5 @@
 import Customer from '../src/Customer.js'
+import DOMupdates from '../src/DOMupdates.js'
 
 class Hotel {
   constructor(allData) {
@@ -27,9 +28,11 @@ class Hotel {
 
   returnPctRoomsOccupied(date) {
     let correctBookingData = this.getDataByDate(date, 'bookings');
-    return Math.floor((correctBookingData.length / this.rooms.length ) * 100);
+    let percentage = Math.floor((correctBookingData.length / this.rooms.length ) * 100);
+    DOMupdates.displayPctOccupiedForToday(percentage);
+    return percentage;
   }
-
+  
   returnRevenueForToday(date) {
     let correctBookingInfo = this.getDataByDate(date, 'bookings');
     let correctRoomServiceInfo = this.getDataByDate(date, 'roomServices')
@@ -41,15 +44,20 @@ class Hotel {
       })
       return totalCost
     }, 0)
-    return bookingCost += correctRoomServiceInfo.reduce((totalRoomServiceCost, roomService) => {
+    let totalCostToday = bookingCost += correctRoomServiceInfo.reduce((totalRoomServiceCost, roomService) => {
       return totalRoomServiceCost += roomService.totalCost
     }, 0)
+    console.log('hello')
+    DOMupdates.displayRevenueForToday(totalCostToday.toFixed(2));
+    return Number(totalCostToday.toFixed(2));
   }
 
   returnNumRoomsAvailable(date) {
     let correctBookingData = this.getDataByDate(date, 'bookings');
     //need to have unoccupied rooms in order to be able to book them
-    return this.rooms.length - correctBookingData.length
+    let roomsAvailable = this.rooms.length - correctBookingData.length;
+    DOMupdates.displayAvailRoomsForToday(roomsAvailable);
+    return roomsAvailable;
   }
 
   getDataByDate(date, property) {
@@ -63,7 +71,7 @@ class Hotel {
       return customer.name === name
     })
     if (foundCustomer === undefined) {
-      // this.displayCreateCustomerPrompt(name)
+      DOMupdates.displayNoExistingCustomerMsg(name)
       return false
     } else {
       let customerBookingData = this.findCustomerInfo(foundCustomer.id, 'bookings');
@@ -85,6 +93,21 @@ class Hotel {
     let occupiedRooms = this.getDataByDate(date, 'bookings')
     this.availableRooms = this.rooms.filter(room => !occupiedRooms.some(occupiedRoom => occupiedRoom.roomNumber === room.number))
   }
+
+  // createBooking() {
+  //   if (this.filterThroughCurrentCustomerInfo(this.currentDate, 'bookings')) {
+
+  //   }
+  // }
+
+  // filterThroughCurrentCustomerInfo(date, property) {
+  //   return this[property].filter(property => property.date === date)
+  // }
+
+  //book/unbook room
+  //purchase room service
+  //upgrade a room
+  //calculate total bill
 }
 
 export default Hotel
