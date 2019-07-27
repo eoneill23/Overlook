@@ -1,5 +1,6 @@
-import Hotel from '../src/Hotel.js'
+import Booking from '../src/Bookings.js'
 import Customer from '../src/Customer.js'
+import Hotel from '../src/Hotel.js'
 import DOMupdates from '../src/DOMupdates.js'
 
 class Administrator {
@@ -59,9 +60,15 @@ class Administrator {
     }
   }
 
-  filterThroughCurrentCustomerInfo(date, property) {
-    return this[property].filter(property => property.date === date)
+  createNewBooking(userId, roomNumber) {
+    let newBooking = new Booking(userId, this.currentDate, roomNumber);
+    this.currentCustomer.bookingInfo.push(newBooking);
+    this.bookings.push(newBooking);
   }
+
+  // filterThroughCurrentCustomerInfo(date, property) {
+  //   return this[property].filter(property => property.date === date)
+  // }
 
   //book/unbook room
   //purchase room service
