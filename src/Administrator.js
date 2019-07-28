@@ -12,6 +12,7 @@ class Administrator {
       this.currentDate = this.generateCurrentDate();
       this.currentCustomer;
       this.hotel = new Hotel(allData, this.currentDate);
+      this.potentialBooking = '';
     }
 
   generateCurrentDate() {

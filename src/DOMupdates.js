@@ -59,8 +59,25 @@ const DOMupdates = {
     let firstName = fullName.split(' ')[0];
     $('.main_span__first-name').text(firstName);
     $('.main_span__room-number').text(correctRoom.number);
-    $('.main_span__cost').text(correctRoom.costPerNight)
-  }
+    $('.main_span__cost').text(correctRoom.costPerNight);
+    $('.main-para__booking-confirmation-msg').show();
+  },
+
+  displayBookingErrorMsg() {
+    $('.main-para__booking-error-msg').show();
+    setTimeout( () => {
+      $('.main-para__booking-error-msg').hide();
+    }, 5000)
+  },
+
+  bookingConfirmationMessage(room) {
+    $('.main-span__booked-room').text(room.number);
+    $('.main-span__booked-cost').text(room.costPerNight);
+    $('.main-para__booking-confirmation').show();
+    $('.main-para__booking-confirmation-msg').hide();
+  },
+
+  
 
 }
 

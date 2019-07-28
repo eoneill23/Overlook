@@ -78,6 +78,9 @@ $(document).ready(() => {
   $('.main-hide').hide();
   $('.main-para__errorMsg').hide();
   $('.header-hide').hide();
+  $('.main-para__booking-error-msg').hide();
+  $('.main-para__booking-confirmation-msg').hide();
+  $('.main-para__booking-confirmation').hide();
 });
 
 $('.nav-button__main-tab').on('click', () => {
@@ -132,10 +135,9 @@ $('.main-section__rooms-page').on('click', (e) => {
     let clickedElement = e.target;
     let correctId = $(clickedElement).attr("data-id")
     let correctRoomInfo = findClickedElementData(correctId)
-    // console.log(correctRoomInfo)
+    admin.potentialBooking = correctRoomInfo;
+    console.log('Hello', admin.potentialBooking)
     DOMupdates.displayBookingMsg(correctRoomInfo, admin.currentCustomer.name)
-  } else {
-    return
   }
 })
 
@@ -144,3 +146,17 @@ function findClickedElementData(correctId) {
     return room.number == correctId;
   })
 }
+
+$('.main-button__confirm-booking').on('click', () => {
+  console.log(admin.potentialBooking)
+  if (admin.potentialBooking !== '') {
+    admin.createNewBooking(admin.currentCustomer.id, admin.currentDate, admin.potentialBooking.number);
+    DOMupdates.bookingConfirmationMessage(admin.potentialBooking)
+  } else {
+    DOMupdates.displayBookingErrorMsg();
+  }
+})
+
+$('.main-button__room-service-yes').on('click', () => {
+  DOMupdates.displayRoomServices();
+})
