@@ -72,6 +72,10 @@ main {
   height: 100%;
 }
 
+.food-hide {
+  text-align: center;
+}
+
 .main-table__avail-rooms {
   background-color: white; 
   height: 50%;
@@ -110,11 +114,19 @@ main {
 }
 
 .main-table__food-menu {
+  align-items: center;
   background-color: white; 
   height: 50%;
+  margin: auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
   opacity: 1;
   overflow: scroll;
+  text-align: center;
+  width: 50%;
+
+  .right-padding {
+    padding-right: 30px;
+  }
 }

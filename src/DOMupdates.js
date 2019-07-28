@@ -40,7 +40,6 @@ const DOMupdates = {
   },
 
   appendAvailableRooms(availableRooms) {
-    console.log(availableRooms)
     availableRooms.forEach(room => {
       $('.main-table__avail-rooms').append(
       `<tr class="main-tr__avail-rooms data-id="${room.number}">
@@ -55,7 +54,6 @@ const DOMupdates = {
   },
 
   displayBookingMsg(correctRoom, fullName) {
-    console.log(correctRoom)
     let firstName = fullName.split(' ')[0];
     $('.main_span__first-name').text(firstName);
     $('.main_span__room-number').text(correctRoom.number);
@@ -71,6 +69,7 @@ const DOMupdates = {
   },
 
   bookingConfirmationMessage(room) {
+    console.log('THIS IS THE ROOM', room)
     $('.main-span__booked-room').text(room.number);
     $('.main-span__booked-cost').text(room.costPerNight);
     $('.main-para__booking-confirmation').show();
@@ -82,12 +81,26 @@ const DOMupdates = {
     $('.food-hide').show();
     roomServices.forEach(service => {
       $('.main-table__food-menu').append(
-        `<tr class="main-tr__food-men data-id="${service.totalCost}">
-        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
+        `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
+        <td class="main-td__food-type right-padding" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
         <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">${service.totalCost}</td>
+        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}"><input type=checkbox class="main-input__food-type"></td>
         </tr>`
       )
     })
+  },
+
+  displayRoomServiceMessage(totalCost, name) {
+    $('.main__span-food-cost').text(totalCost.toFixed(2))
+    $('.main-para__room-service-confirmation-msg').show();
+    $('.main-button__confirm-room-service').show();
+  },
+
+  displayRoomServiceConfirmationMsg() {
+    $('.main-para__room-service-confirmation-msg').hide();
+    $('.main-para__room-service-confirmed').show();
+    //hide the booking/room service screen
+    //fade in current customer data
   }
 
 }

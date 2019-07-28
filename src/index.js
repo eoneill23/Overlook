@@ -82,6 +82,9 @@ $(document).ready(() => {
   $('.main-para__booking-confirmation-msg').hide();
   $('.main-para__booking-confirmation').hide();
   $('.food-hide').hide();
+  $('.main-para__room-service-confirmed').hide();
+  $('.main-button__confirm-room-service').hide();
+  $('.main-div__rooms-hide').hide();
 });
 
 $('.nav-button__main-tab').on('click', () => {
@@ -132,17 +135,16 @@ $('.main-button__show-booking').on('click', () => {
 })
 
 $('.main-section__rooms-page').on('click', (e) => {
-  if (e.target.closest('.main-td__avail-rooms')) {
-    let clickedElement = e.target;
-    let correctId = $(clickedElement).attr("data-id")
-    let correctRoomInfo = findClickedElementData(correctId)
+  if ($(e.target).hasClass('main-td__avail-rooms')) {
+    let clickedElement = $(e.target);
+    let correctId = $(clickedElement).attr('data-id')
+    let correctRoomInfo = findClickedRoomData(correctId)
     admin.potentialBooking = correctRoomInfo;
-    console.log('Hello', admin.potentialBooking)
     DOMupdates.displayBookingMsg(correctRoomInfo, admin.currentCustomer.name)
   }
 })
 
-function findClickedElementData(correctId) {
+function findClickedRoomData(correctId) {
   return admin.rooms.find(room => {
     return room.number == correctId;
   })
@@ -151,7 +153,8 @@ function findClickedElementData(correctId) {
 $('.main-button__confirm-booking').on('click', () => {
   if (admin.potentialBooking !== '') {
     admin.createNewBooking(admin.currentCustomer.id, admin.currentDate, admin.potentialBooking.number);
-    DOMupdates.bookingConfirmationMessage(admin.potentialBooking)
+    DOMupdates.bookingConfirmationMessage(admin.potentialBooking);
+    admin.potentialBooking = '';
   } else {
     DOMupdates.displayBookingErrorMsg();
   }
@@ -163,6 +166,54 @@ $('.main-button__room-service-yes').on('click', () => {
   // console.log(uniqueFood)
   DOMupdates.displayRoomServices(admin.roomServices);
 })
+
+$('.main-section__rooms-page').on('click', (e) => {
+  if ($(e.target).is('.main-input__food-type') && $(e.target).prop('checked') == true) {
+    let clickedElement = e.target;
+    let correctCost = $(clickedElement).closest('tr').attr('data-id');
+    let correctRoomServiceInfo = findClickedRoomServiceData(correctCost);
+    admin.potentialRoomServices.push(correctRoomServiceInfo);
+    addUpRoomServiceCost()
+  } else if ($(e.target).is('.main-input__food-type')) {
+    let clickedElement = e.target;
+    let correctCost = $(clickedElement).closest('tr').attr('data-id');
+    subtractRoomServiceCost(correctCost)
+  }
+})
+
+function findClickedRoomServiceData(correctCost) {
+  return admin.roomServices.find(roomService => {
+    return roomService.totalCost == correctCost;
+  })
+}
+
+function addUpRoomServiceCost() {
+  let totalCost = admin.potentialRoomServices.reduce((acc, roomService) => {
+    acc += roomService.totalCost;
+    return acc
+  }, 0)
+  DOMupdates.displayRoomServiceMessage(totalCost, admin.currentCustomer.name)
+}
+
+function subtractRoomServiceCost(cost) {
+  let foundIndex = admin.potentialRoomServices.findIndex(roomService => {
+    return roomService.totalCost == cost;
+  })
+  admin.potentialRoomServices.splice(foundIndex, 1)
+  let totalCost = admin.potentialRoomServices.reduce((acc, roomService) => {
+    acc += roomService.totalCost;
+    return acc
+  }, 0)
+  DOMupdates.displayRoomServiceMessage(totalCost, admin.currentCustomer.name)
+}
+
+$('.main-button__confirm-room-service').on('click', () => {
+  admin.createNewRoomServiceOrder();
+  $('.main-para__room-service-confirmed').hide();
+  $('.main-button__confirm-room-service').hide();
+  DOMupdates.displayRoomServiceConfirmationMsg();
+})
+//let correctRoomInfo = findClickedElementData(correctId, 'rooms')
 
 // function returnUniqueFoodItems() {
 //   return admin.roomServices.reduce((acc, roomService) => {

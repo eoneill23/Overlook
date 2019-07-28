@@ -35,7 +35,7 @@ describe('Hotel', () => {
 	});
 
 	it('should return the all time cost of a customers room services', () => {
-		expect(admin.currentCustomer.returnAllTimeRoomServiceCost()).to.equal(51.23);
+		expect(admin.currentCustomer.returnAllTimeRoomServiceCost()).to.equal(83.46);
 	});
 
 	it('should throw an error if a customer has no information', () => {

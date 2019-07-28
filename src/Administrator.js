@@ -1,5 +1,6 @@
 import Booking from '../src/Bookings.js'
 import Customer from '../src/Customer.js'
+import RoomService from '../src/RoomService.js'
 import Hotel from '../src/Hotel.js'
 import DOMupdates from '../src/DOMupdates.js'
 
@@ -13,6 +14,7 @@ class Administrator {
       this.currentCustomer;
       this.hotel = new Hotel(allData, this.currentDate);
       this.potentialBooking = '';
+      this.potentialRoomServices = [];
     }
 
   generateCurrentDate() {
@@ -65,6 +67,15 @@ class Administrator {
     let newBooking = new Booking(userId, this.currentDate, roomNumber);
     this.currentCustomer.bookingInfo.push(newBooking);
     this.bookings.push(newBooking);
+  }
+
+  createNewRoomServiceOrder() {
+    this.potentialRoomServices.forEach(roomService => {
+      let newService = new RoomService(this.currentCustomer.id, this.currentDate, roomService.food, roomService.totalCost);
+      this.currentCustomer.roomServiceInfo.push(newService);
+      this.roomServices.push(newService);
+    })
+    this.potentialRoomServices = []
   }
 
   // filterThroughCurrentCustomerInfo(date, property) {
