@@ -20,12 +20,14 @@ const DOMupdates = {
 
   displayNoExistingCustomerMsg(name) {
     $('.main-input__existingCustomer-search').css({"border-color": "red", "border-width":"1px", "border-style":"solid"});
+    $('.main-div__existingCustomer-search').css({"border-color": "red", "border-width":"2px", "border-style":"solid"});
     $('.main-span_errorName').text(name);
     $('.main-para__errorMsg').show();
     $('.error-show').show();
     setTimeout( () => {
       $('.main-para__errorMsg').hide();
       $('.main-input__existingCustomer-search').css({"border-color": "", "border-width":"", "border-style":""});
+      $('.main-div__existingCustomer-search').css({"border-color": "", "border-width":"", "border-style":""});
     }, 5000)
   },
 
