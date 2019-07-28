@@ -221,17 +221,30 @@ $('.main-button__specified-date').on('click', ( )=> {
   let inputDate = $('.main-input__specified-date').val()
   admin.hotel.findAvailableRooms(inputDate);
   DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, inputDate);
+  $('.main-div__input-wrangler').hide();
   admin.hotel.availableRooms;
 })
 
 $('.main-button__create-tonight').on('click', () => {
   $('.room-content-container').hide();
   $('.main-div__input-wrangler').hide();
-  console.log(admin.currentCustomer)
   if (admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo')) {
     DOMupdates.displayCustomerHasBookingMsg(admin.currentCustomer.name);
   } else {
     DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+  }
+})
+
+$('.main-section__rooms-page').on('click', (e) => {
+  if ($(e.target).is('.main-input__radio-filter') && $(e.target).prop('checked') == true) {
+    let clickedElement = e.target;
+    let attribute = $(clickedElement).attr('value');
+    let filteredRooms = admin.hotel.availableRooms.filter(room => {
+      return room.roomType === attribute;
+    })
+    $('.main-tbody__avail-rooms').html('');
+    $('.main-div__input-wrangler').hide();
+    DOMupdates.appendAvailableRooms(filteredRooms, admin.currentDate);
   }
 })
 //let correctRoomInfo = findClickedElementData(correctId, 'rooms')

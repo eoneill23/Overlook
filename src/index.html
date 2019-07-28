@@ -51,25 +51,27 @@
             <h3 class="main-h3__rooms-avail-on-date">Rooms available on: <span class="main-span__rooms-avail-on-date"></span></h3>
             <p class="main-para__filter-room-type">Filter rooms by type:</p>
             <div class="inputs">
-              <input type="radio" id="residential" name="roomType" value="residential suite">
+              <input type="radio" class="main-input__radio-filter"id="residential" name="roomType" value="residential suite">
               <label for="residential">Residential</label>
-              <input type="radio" id="suite" name="roomType" value="suite">
+              <input type="radio" class="main-input__radio-filter" id="suite" name="roomType" value="suite">
               <label for="dewey">Suite</label>
-              <input type="radio" id="juniorSuite" name="roomType" value="junior suite">
+              <input type="radio" class="main-input__radio-filter" id="juniorSuite" name="roomType" value="junior suite">
               <label for="louie">Junior suite</label>
-              <input type="radio" id="singleRoom" name="roomType" value="single room">
+              <input type="radio" class="main-input__radio-filter" id="singleRoom" name="roomType" value="single room">
               <label for="louie">Single room</label>
             </div>
           </div>
             <table class="main-table__avail-rooms">
-                <tr class="main-tr__avail-rooms">
-                  <th class="main-th__avail-rooms">Room number</th>
-                  <th class="main-th__avail-rooms">Room type</th>
-                  <th class="main-th__avail-rooms">Has bidet?</th>
-                  <th class="main-th__avail-rooms">Bed size</th>
-                  <th class="main-th__avail-rooms">Number of beds</th>
-                  <th class="main-th__avail-rooms">Cost per night</th>
-                </tr>
+              <tr class="main-tr__avail-rooms">
+                <th class="main-th__avail-rooms">Room number</th>
+                <th class="main-th__avail-rooms">Room type</th>
+                <th class="main-th__avail-rooms">Has bidet?</th>
+                <th class="main-th__avail-rooms">Bed size</th>
+                <th class="main-th__avail-rooms">Number of beds</th>
+                <th class="main-th__avail-rooms">Cost per night</th>
+              </tr>
+              <tbody class="main-tbody__avail-rooms">
+              </tbody>
             </table>
           <button class="main-button__show-booking">Show available rooms</button>
           <p class='main-para__booking-confirmation-msg'><span class="main_span__first-name"></span>, would you like to book room number <span class="main_span__room-number"></span> tonight for $<span class="main_span__cost"></span>?</p>
@@ -95,14 +97,14 @@
       <section class="main-section__customer-page main-section main-hide">
         <form class="main-form__existingCustomer-search">
           <div class="main-div__existingCustomer-search main-customer-div">
-            <label for="existingCustomer-search">Search for an existing customer</label>
+            <label for="existingCustomer-search" class="customer-label">Search for an existing customer:</label>
             <input class="main-input__existingCustomer-search" id="existingCustomerSearch">
             <button class="main-button__existingCustomer-search">Submit</button>
             <p class="main-para__errorMsg">Sorry, we don't have <span class="main-span_errorName"></span> in our database.
             Please check your spelling or enter the customer into the database below!</p>
           </div>
           <div class="error-show main-customer-div">
-            <label for="create-new-customer">Create a new customer</label>
+            <label for="create-new-customer" class="customer-label">Or, create a new customer:</label>
             <input class="main-input__create-new-customer" id="createNewCustomer">
             <button class="main-button__create-new-customer">Submit</button>
           </div>

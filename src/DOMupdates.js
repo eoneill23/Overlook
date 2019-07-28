@@ -41,7 +41,7 @@ const DOMupdates = {
 
   appendAvailableRooms(availableRooms, date) {
     availableRooms.forEach(room => {
-      $('.main-table__avail-rooms').append(
+      $('.main-tbody__avail-rooms').append(
       `<tr class="main-tr__avail-rooms data-id="${room.number}">
       <td class="main-td__avail-rooms id="td-room-num" data-id="${room.number}">${room.number}</td>
       <td class="main-td__avail-rooms" id="td-room-type" data-id="${room.number}">${room.roomType}</td>
