@@ -40,8 +40,8 @@ describe('Hotel', () => {
   })
 
   it('should show which rooms are available to book on a specified date', () => {
-    admin.hotel.findAvailableRooms("2019/10/18")
-    expect(admin.hotel.availableRooms.length).to.equal(10)
+    admin.hotel.findAvailableRooms("2019/10/18");
+    expect(admin.hotel.availableRooms.length).to.equal(10);
   })
 
   it('should show the most popular booking date', () => {
@@ -49,6 +49,11 @@ describe('Hotel', () => {
   })
 
   it('should show the date with the most available rooms', () => {
-    expect(admin.hotel.findDateWithMostAvailableRooms()).to.equal("2019/07/28")
+    expect(admin.hotel.findDateWithMostAvailableRooms()).to.equal("2019/07/28");
+  })
+
+  it('should show a list of available rooms on a specified date', () => {
+    admin.hotel.findAvailableRooms("2019/07/28");
+    expect(admin.hotel.availableRooms.length).to.equal(10);
   })
 })

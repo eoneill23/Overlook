@@ -39,7 +39,7 @@ const DOMupdates = {
     //$(.main-button__show-booking).show()
   },
 
-  appendAvailableRooms(availableRooms) {
+  appendAvailableRooms(availableRooms, date) {
     availableRooms.forEach(room => {
       $('.main-table__avail-rooms').append(
       `<tr class="main-tr__avail-rooms data-id="${room.number}">
@@ -50,6 +50,10 @@ const DOMupdates = {
       <td class="main-td__avail-rooms" id="td-num-beds" data-id="${room.number}">${room.numBeds}</td>
       <td class="main-td__avail-rooms" id="td-cost" data-id="${room.number}">${room.costPerNight}</td>
       </tr>`)
+      $('.main-span__rooms-avail-on-date').text(date)
+      $('.room-content-container').hide();
+      $('.room-input-container').hide();
+      $('.main-div__rooms-hide').show();
     })
   },
 
@@ -101,6 +105,12 @@ const DOMupdates = {
     $('.main-para__room-service-confirmed').show();
     //hide the booking/room service screen
     //fade in current customer data
+  },
+
+  displayCustomerHasBookingMsg(name) {
+    let firstName = name.split(' ')[0];
+    $('.main-span__customer-has-booking-name').text(firstName);
+    $('.main-h3__customer-has-booking').show();
   }
 
 }

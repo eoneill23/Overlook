@@ -51,6 +51,13 @@ class Customer {
       return true
     }
   }
+
+  findIfCustomerHasBookingTonight(date, property) {
+    let correctBookingInfo = this.getCategoryDataOnDate(date, property);
+    return correctBookingInfo.find(booking => {
+      return booking.date == date;
+    })
+  }
 }
 
 export default Customer;

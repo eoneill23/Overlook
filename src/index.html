@@ -22,21 +22,55 @@
         <p class="main-section__occupancyPct-para">The hotel is currently at <span class="main-span__pct-occupied"></span>% capacity.</p>
       </section>
       <section class="main-section__rooms-page main-section main-hide">
-        <section></section>
-        <section></section>
+        <div class="room-content-container">
+          <section class="main-section__most-pop-book-date">
+            <h3 class="main-h3__most-pop-book-date">The most popular booking date is</h3>
+            <span class="main-h4__most-pop-book-date"></span>
+          </section>
+          <section class="main-section__most-rooms-avail">
+            <h3 class="main-h3_most-rooms-avail">The date with the most available rooms is</h3>
+            <span class="main-h4__most-rooms-avail"></span>
+          </section>
+        </div>
+          <div class="main-div__input-wrangler">
+            <div class="room-input-container">
+              <label for="search-booking-dates">Search available rooms by date</label>
+              <input type="text" class="main-input__specified-date" id="search-booking-dates" placeholder="yyyy/mm/dd">
+              <button class="main-button__specified-date">Submit</button>
+            </div>
+            <div class="room-input-container-tonight">
+                <label for="create-booking-tonight">Or, create a booking for tonight!</label>
+                <button class="main-button__create-tonight">Submit</button>
+            </div>
+          </div>
+        <h3 class="main-h3__customer-has-booking">It looks like <span class="main-span__customer-has-booking-name"></span> already has a booking for tonight.</h3>
         <table class="main-table__booking-info-summary valid-customer">
         </table>
         <div class="main-div__rooms-hide">
-          <table class="main-table__avail-rooms">
-              <tr class="main-tr__avail-rooms">
-                <th class="main-th__avail-rooms">Room number</th>
-                <th class="main-th__avail-rooms">Room type</th>
-                <th class="main-th__avail-rooms">Has bidet?</th>
-                <th class="main-th__avail-rooms">Bed size</th>
-                <th class="main-th__avail-rooms">Number of beds</th>
-                <th class="main-th__avail-rooms">Cost per night</th>
-              </tr>
-          </table>
+          <div class="main-div__table-header-container">
+            <h3 class="main-h3__rooms-avail-on-date">Rooms available on: <span class="main-span__rooms-avail-on-date"></span></h3>
+            <p class="main-para__filter-room-type">Filter rooms by type:</p>
+            <div class="inputs">
+              <input type="radio" id="residential" name="roomType" value="residential suite">
+              <label for="residential">Residential</label>
+              <input type="radio" id="suite" name="roomType" value="suite">
+              <label for="dewey">Suite</label>
+              <input type="radio" id="juniorSuite" name="roomType" value="junior suite">
+              <label for="louie">Junior suite</label>
+              <input type="radio" id="singleRoom" name="roomType" value="single room">
+              <label for="louie">Single room</label>
+            </div>
+          </div>
+            <table class="main-table__avail-rooms">
+                <tr class="main-tr__avail-rooms">
+                  <th class="main-th__avail-rooms">Room number</th>
+                  <th class="main-th__avail-rooms">Room type</th>
+                  <th class="main-th__avail-rooms">Has bidet?</th>
+                  <th class="main-th__avail-rooms">Bed size</th>
+                  <th class="main-th__avail-rooms">Number of beds</th>
+                  <th class="main-th__avail-rooms">Cost per night</th>
+                </tr>
+            </table>
           <button class="main-button__show-booking">Show available rooms</button>
           <p class='main-para__booking-confirmation-msg'><span class="main_span__first-name"></span>, would you like to book room number <span class="main_span__room-number"></span> tonight for $<span class="main_span__cost"></span>?</p>
           <button class="main-button__confirm-booking">Confirm booking</button>

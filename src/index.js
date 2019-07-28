@@ -85,6 +85,7 @@ $(document).ready(() => {
   $('.main-para__room-service-confirmed').hide();
   $('.main-button__confirm-room-service').hide();
   $('.main-div__rooms-hide').hide();
+  $('.main-h3__customer-has-booking').hide();
 });
 
 $('.nav-button__main-tab').on('click', () => {
@@ -93,6 +94,8 @@ $('.nav-button__main-tab').on('click', () => {
 });
 
 $('.nav-button__rooms-tab').on('click', () => {
+  $('.main-h4__most-rooms-avail').text(admin.hotel.findDateWithMostAvailableRooms());
+  $('.main-h4__most-pop-book-date').text(admin.hotel.findMostBookedDate())
   $('.main-section__main-page').hide();
   $('.main-section__orders-page').hide();
   $('.main-section__customer-page').hide();
@@ -131,7 +134,7 @@ $('.main-button__create-new-customer').on('click', () => {
 
 $('.main-button__show-booking').on('click', () => {
   event.preventDefault();
-  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms);
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
 })
 
 $('.main-section__rooms-page').on('click', (e) => {
@@ -212,6 +215,24 @@ $('.main-button__confirm-room-service').on('click', () => {
   $('.main-para__room-service-confirmed').hide();
   $('.main-button__confirm-room-service').hide();
   DOMupdates.displayRoomServiceConfirmationMsg();
+})
+
+$('.main-button__specified-date').on('click', ( )=> {
+  let inputDate = $('.main-input__specified-date').val()
+  admin.hotel.findAvailableRooms(inputDate);
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, inputDate);
+  admin.hotel.availableRooms;
+})
+
+$('.main-button__create-tonight').on('click', () => {
+  $('.room-content-container').hide();
+  $('.main-div__input-wrangler').hide();
+  console.log(admin.currentCustomer)
+  if (admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo')) {
+    DOMupdates.displayCustomerHasBookingMsg(admin.currentCustomer.name);
+  } else {
+    DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+  }
 })
 //let correctRoomInfo = findClickedElementData(correctId, 'rooms')
 

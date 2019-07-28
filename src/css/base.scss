@@ -130,3 +130,60 @@ main {
     padding-right: 30px;
   }
 }
+
+.room-content-container {
+  display: flex;
+  height: 50%;
+  justify-content: space-around;
+  padding: 40px;
+  width: 100%;
+}
+
+.main-section__most-pop-book-date,
+.main-section__most-rooms-avail {
+  border: 2px solid black;
+  height: 100%;
+  text-align: center;
+  width: 45%;
+}
+
+// .main-section__most-pop-book-date,
+// .main-section__most-rooms-avail {
+  
+// }
+
+// .main-section__rooms-page {
+
+// }
+
+.main-div__input-wrangler {
+  display: flex;
+  flex: row;
+}
+
+.room-input-container,
+.room-input-container-tonight {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  margin: auto;
+  text-align: center;
+  width: 25%;
+}
+
+.main-div__table-header-container {
+  display: flex;
+
+  .inputs,
+  .main-para__filter-room-type {
+    margin-top: 22px;
+  }
+  
+  .inputs {
+    margin-left: 10px;
+  }
+
+  .main-para__filter-room-type {
+    margin-left: 70px;
+  }
+}
