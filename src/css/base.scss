@@ -67,6 +67,11 @@ main {
   height: 100px;
 }
 
+.main-div__rooms-hide,
+.food-hide  {
+  height: 100%;
+}
+
 .main-table__avail-rooms {
   background-color: white; 
   height: 50%;
@@ -88,7 +93,7 @@ main {
     justify-content: space-between;
     list-style-type: none;
     margin: 5px 0 5px 0;
-    
+
     &:hover {
       background-color: purple;
     }
@@ -100,7 +105,16 @@ main {
     font-size: 1em;
     text-align: center;
     width: 20%;
-
   }
 
+}
+
+.main-table__food-menu {
+  background-color: white; 
+  height: 50%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  overflow: scroll;
 }

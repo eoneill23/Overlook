@@ -77,7 +77,18 @@ const DOMupdates = {
     $('.main-para__booking-confirmation-msg').hide();
   },
 
-  
+  displayRoomServices(roomServices) {
+    $('.main-div__rooms-hide').hide();
+    $('.food-hide').show();
+    roomServices.forEach(service => {
+      $('.main-table__food-menu').append(
+        `<tr class="main-tr__food-men data-id="${service.totalCost}">
+        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
+        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">${service.totalCost}</td>
+        </tr>`
+      )
+    })
+  }
 
 }
 

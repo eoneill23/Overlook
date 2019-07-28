@@ -81,6 +81,7 @@ $(document).ready(() => {
   $('.main-para__booking-error-msg').hide();
   $('.main-para__booking-confirmation-msg').hide();
   $('.main-para__booking-confirmation').hide();
+  $('.food-hide').hide();
 });
 
 $('.nav-button__main-tab').on('click', () => {
@@ -148,7 +149,6 @@ function findClickedElementData(correctId) {
 }
 
 $('.main-button__confirm-booking').on('click', () => {
-  console.log(admin.potentialBooking)
   if (admin.potentialBooking !== '') {
     admin.createNewBooking(admin.currentCustomer.id, admin.currentDate, admin.potentialBooking.number);
     DOMupdates.bookingConfirmationMessage(admin.potentialBooking)
@@ -158,5 +158,18 @@ $('.main-button__confirm-booking').on('click', () => {
 })
 
 $('.main-button__room-service-yes').on('click', () => {
-  DOMupdates.displayRoomServices();
+  $('.main-div__rooms-hide').hide();
+  // let uniqueFood = returnUniqueFoodItems()
+  // console.log(uniqueFood)
+  DOMupdates.displayRoomServices(admin.roomServices);
 })
+
+// function returnUniqueFoodItems() {
+//   return admin.roomServices.reduce((acc, roomService) => {
+//     if (!acc.includes(roomService.food)) {
+//       acc.push(roomService)
+//     }
+//     console.log(acc)
+//     return acc;
+//   }, [])
+// }
