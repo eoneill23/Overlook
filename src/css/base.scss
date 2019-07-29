@@ -76,40 +76,41 @@ main {
   text-align: center;
 }
 
-.main-table__avail-rooms {
+.avail-rooms-container {
   background-color: white; 
-  height: 50%;
+  height: 300px;
   padding: 10px;
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
   overflow: scroll;
-  
-  .main-th__avail-rooms {
-    display: flex;
-    justify-content: space-between;
-    width: 20%;
-  }
-  
-  .main-tr__avail-rooms {
-    display: flex;
-    justify-content: space-between;
-    list-style-type: none;
-    margin: 5px 0 5px 0;
 
-    &:hover {
-      background-color: gray;
+  .main-table__avail-rooms {
+    display: flex;
+    flex-direction: column;
+    
+    .main-th__avail-rooms {
+      display: flex;
+      justify-content: space-between;
+      width: 20%;
+    }
+    
+    .main-tr__avail-rooms {
+      display: flex;
+      justify-content: space-between;
+      list-style-type: none;
+      margin: 5px 0 5px 0;
+
+      &:hover {
+        background-color: gray;
+      }
+    }
+
+    .main-td__avail-rooms {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1em;
+      text-align: center;
+      width: 20%;
     }
   }
-
-  .main-td__avail-rooms {
-    display: flex;
-    justify-content: space-between;
-    font-size: 1em;
-    text-align: center;
-    width: 20%;
-  }
-
 }
 
 .main-table__food-menu {
@@ -185,6 +186,65 @@ main {
   .booking-label {
     font-size: 1.2em;
     font-weight: bold;
+  }
+
+  .rooms-customer-info {
+    height: 100%;
+    width: 100%;
+  }
+
+  .rooms-customer-summary {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    width: 50%;
+  }
+
+  .main-h3__rooms-header {
+    text-align: center;
+  }
+
+  .all-bookings-container {
+    background-color: white; 
+    border: 1px solid black;
+    height: 300px;
+    padding: 10px;
+    overflow: scroll;
+  }
+
+  .main-table__all-bookings {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 80%;
+  }
+
+  .main-tr__all-bookings {
+    display: flex;
+    // flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .main-tr__booking-info {
+    width: 230px;
+  }
+
+  .bookings-td__booking-info,
+  .main-th__all-bookings {
+    text-align: center;
+    width: 32%; 
+  }
+
+  .bookings-td__booking-info {
+    padding-bottom: 10px;
+  }
+
+  .main-tbody__booking-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 

@@ -102,9 +102,12 @@ $('.nav-button__rooms-tab').on('click', () => {
   $('.main-section__rooms-page').show();
   if (admin.currentCustomer !== undefined) {
     console.log(admin.currentCustomer)
+    $('.rooms-customer-info').show();
     $('.rooms-general-info').hide();
+    DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name);
   } else {
-
+    $('.rooms-customer-info').hide();
+    $('.rooms-general-info').show();
   }
 })
 

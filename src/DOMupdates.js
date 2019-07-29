@@ -160,6 +160,22 @@ const DOMupdates = {
       $('.orders-all-expenditures').text(`${name} has never ordered room service.`)
       $('.orders-all-cost').hide();
     }
+  },
+
+  displayCustomerBookingInfo(bookings, name) {
+    $('.rooms-span__customer-name').text(name)
+    if (bookings.length > 0) {
+      bookings.forEach(booking => {
+        $('.main-tbody__booking-info').append(
+          `<tr class="main-tr__booking-info">
+          <td class="bookings-td__booking-info">${booking.date}</td>
+          <td class="bookings-td__booking-info bookings-margin-right">${booking.roomNumber}</td>
+          </tr>`
+        )
+      })
+    } else {
+      $('.main-tbody__customer-info').html(`${name} doesn't currently have any bookings.`)
+    }
   }
 
 }

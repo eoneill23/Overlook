@@ -62,6 +62,7 @@
                 <label for="louie">Single room</label>
               </div>
             </div>
+            <section class="avail-rooms-container">
               <table class="main-table__avail-rooms">
                 <tr class="main-tr__avail-rooms">
                   <th class="main-th__avail-rooms">Room number</th>
@@ -74,6 +75,7 @@
                 <tbody class="main-tbody__avail-rooms">
                 </tbody>
               </table>
+            </section>
             <button class="main-button__show-booking">Show available rooms</button>
             <p class='main-para__booking-confirmation-msg'><span class="main_span__first-name"></span>, would you like to book room number <span class="main_span__room-number"></span> tonight for $<span class="main_span__cost"></span>?</p>
             <button class="main-button__confirm-booking">Confirm booking</button>
@@ -96,15 +98,17 @@
       </div>
       <div class="rooms-customer-info">
         <section class="rooms-customer-summary">
-            <h3 class="main-h3__customer-header">Booking information for: <span class="rooms-span__customer-name">name</span></h3>
-            <table class="main-table__all-bookings">
-              <tr class="main-tr__all-bookings">
-                <tbody class="main-tbody__booking-info">
+            <h3 class="main-h3__rooms-header">Booking information for: <span class="rooms-span__customer-name">name</span></h3>
+            <section class="all-bookings-container">
+              <table class="main-table__all-bookings">
+                <tr class="main-tr__all-bookings">
                   <th class="main-th__all-bookings">Date</th>
-                  <th class="main-th__all-bookings">Room number</th>
-                </tbody>
-              </tr>
-            </table>
+                  <th class="main-th__all-bookings bookings-margin-right">Room number</th>
+                  <tbody class="main-tbody__booking-info">
+                  </tbody>
+                </tr>
+              </table>
+            </section>
         </section>
       </div>
       </section>
