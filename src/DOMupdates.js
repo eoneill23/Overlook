@@ -55,6 +55,7 @@ const DOMupdates = {
       $('.main-span__rooms-avail-on-date').text(date);
       $('.room-content-container').hide();
       $('.room-input-container').hide();
+      $('.rooms-customer-info').hide();
       $('.main-div__rooms-hide').show();
     })
   },

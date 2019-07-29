@@ -161,6 +161,13 @@ $('.main-button__show-booking').on('click', () => {
   DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
 })
 
+$('.booking-tonight-button').on('click', () => {
+  event.preventDefault();
+  $('.rooms-general-info').show();
+  $('.main-div__input-wrangler').hide();
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+})
+
 $('.main-section__rooms-page').on('click', (e) => {
   if ($(e.target).hasClass('main-td__avail-rooms')) {
     let clickedElement = $(e.target);
