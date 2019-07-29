@@ -100,6 +100,12 @@ $('.nav-button__rooms-tab').on('click', () => {
   $('.main-section__orders-page').hide();
   $('.main-section__customer-page').hide();
   $('.main-section__rooms-page').show();
+  if (admin.currentCustomer !== undefined) {
+    console.log(admin.currentCustomer)
+    $('.rooms-general-info').hide();
+  } else {
+
+  }
 })
 
 $('.nav-button__orders-tab').on('click', () => {
