@@ -121,14 +121,16 @@ $('.nav-button__orders-tab').on('click', () => {
     $('.orders-general-info').hide();
     $('.orders-customer-info').show();
     $('.orders-span__customer-name').text(admin.currentCustomer.name);
-    $('.main-tbody__customer-info').html('');
-    DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
-    DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
-    DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
+    // $('.main-tbody__customer-info').html('');
   } else {
     $('.orders-general-info').show();
     $('.orders-customer-info').hide();
   }
+})
+
+$('.nav-button__orders-tab').on('click', () => {
+  let roomServiceInfo = admin.hotel.getDataByDate(admin.currentDate, 'roomServices')
+  DOMupdates.displayAllOrdersInfo(roomServiceInfo, admin.currentDate)
 })
 
 $('.nav-button__customer-tab').on('click', () => {
@@ -144,6 +146,9 @@ $('.main-button__existingCustomer-search').on('click', () => {
   console.log(admin.hotel)
   admin.instantiateExistingCustomer(name);
   $('.main-input__existingCustomer-search').val('');
+  DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
+  DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
+  DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
 })
 
 $('.main-button__create-new-customer').on('click', () => {
@@ -268,11 +273,6 @@ $('.main-section__rooms-page').on('click', (e) => {
     $('.main-div__input-wrangler').hide();
     DOMupdates.appendAvailableRooms(filteredRooms, admin.currentDate);
   }
-})
-
-$('.nav-button__orders-tab').on('click', () => {
-  let roomServiceInfo = admin.hotel.getDataByDate(admin.currentDate, 'roomServices')
-  DOMupdates.displayAllOrdersInfo(roomServiceInfo)
 })
 
 $('.main-button__room-service-date').on('click', () => {
