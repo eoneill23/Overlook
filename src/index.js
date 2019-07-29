@@ -125,12 +125,9 @@ $('.nav-button__orders-tab').on('click', () => {
   } else {
     $('.orders-general-info').show();
     $('.orders-customer-info').hide();
+    let roomServiceInfo = admin.hotel.getDataByDate(admin.currentDate, 'roomServices');
+    DOMupdates.displayAllOrdersInfo(roomServiceInfo, admin.currentDate);
   }
-})
-
-$('.nav-button__orders-tab').on('click', () => {
-  let roomServiceInfo = admin.hotel.getDataByDate(admin.currentDate, 'roomServices')
-  DOMupdates.displayAllOrdersInfo(roomServiceInfo, admin.currentDate)
 })
 
 $('.nav-button__customer-tab').on('click', () => {
@@ -255,10 +252,12 @@ $('.main-button__specified-date').on('click', ( )=> {
 $('.main-button__create-tonight').on('click', () => {
   $('.room-content-container').hide();
   $('.main-div__input-wrangler').hide();
-  if (admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo')) {
+  if (admin.currentCustomer !== undefined && admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo')) {
     DOMupdates.displayCustomerHasBookingMsg(admin.currentCustomer.name);
-  } else {
+  } else if (admin.currentCustomer !== undefined && admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo') == false) {
     DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+  } else {
+    DOMupdates.selectCustomerMsg();
   }
 })
 

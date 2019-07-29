@@ -115,6 +115,7 @@ const DOMupdates = {
   },
 
   displayAllOrdersInfo(roomServices, date) {
+    console.log('Hello')
     $('.main-span__orders-date').text(date)
     roomServices.forEach(service => {
       $('.main-tbody__room-service-info').append(
@@ -176,6 +177,11 @@ const DOMupdates = {
     } else {
       $('.main-tbody__customer-info').html(`${name} doesn't currently have any bookings.`)
     }
+  },
+
+  selectCustomerMsg() {
+    $('.main-h3__customer-has-booking').show();
+    $('.main-h3__customer-has-booking').text('Please select a customer to make a booking.');
   }
 
 }
