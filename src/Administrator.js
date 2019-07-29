@@ -43,6 +43,9 @@ class Administrator {
       let customerRoomServiceData = this.findCustomerInfo(foundCustomer.id, 'roomServices');
       this.currentCustomer = new Customer(foundCustomer.name, foundCustomer.id, this.currentDate, customerBookingData, customerRoomServiceData);
       this.customers.push(this.currentCustomer);
+      DOMupdates.displayCustomerOrderInfo(this.currentCustomer.roomServiceInfo, this.currentCustomer.name);
+      DOMupdates.displayExpendituresOnDate(this.currentDate, this.currentCustomer.returnRoomServiceCostOnDate(this.currentDate), this.currentCustomer.name);
+      DOMupdates.displayTotalExpenditures(this.currentCustomer.returnAllTimeRoomServiceCost(), this.currentCustomer.name);
       DOMupdates.displayCurrentCustomerName(this.currentCustomer.name)
     }
   }
@@ -64,6 +67,7 @@ class Administrator {
   }
 
   createNewBooking(userId, roomNumber) {
+    console.log("THIS IS THE ROOM NUMBER", roomNumber)
     let newBooking = new Booking(userId, this.currentDate, roomNumber);
     this.currentCustomer.bookingInfo.push(newBooking);
     this.bookings.push(newBooking);

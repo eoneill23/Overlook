@@ -1,6 +1,3 @@
-import Customer from '../src/Customer.js'
-import DOMupdates from '../src/DOMupdates.js'
-
 class Booking {
   constructor(userId, date, roomNumber) {
     this.userID = userId;

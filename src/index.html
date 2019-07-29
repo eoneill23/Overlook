@@ -76,21 +76,23 @@
                 </tbody>
               </table>
             </section>
-            <button class="main-button__show-booking">Show available rooms</button>
+            <!-- <button class="main-button__show-booking">Show available rooms</button> -->
             <p class='main-para__booking-confirmation-msg'><span class="main_span__first-name"></span>, would you like to book room number <span class="main_span__room-number"></span> tonight for $<span class="main_span__cost"></span>?</p>
             <button class="main-button__confirm-booking">Confirm booking</button>
             <p class="main-para__booking-error-msg">Please select a room from the options above to confirm your booking!</p>
             <p class="main-para__booking-confirmation">Congratulations! You have booked room <span class="main-span__booked-room"></span> for $<span class="main-span__booked-cost"></span>. Would you like to order room service?</p>
             <button class="main-button__room-service-yes">Yes!</button>
-            <button class="main-button__room-service-yes">No.</button>
+            <button class="main-button__room-service-no">No.</button>
           </div>
           <div class="food-hide">
-            <table class="main-table__food-menu food-hide">
-              <tr class="main-tr__food-menu food-hide">
-                <th class="main-th__food-menu food-hide right-padding">Food type</th>
-                <th class="main-th__food-menu food-hide">Cost</th>
-              </tr>
-            </table>
+            <section class="room-service-container">
+              <table class="main-table__food-menu food-hide">
+                <tr class="main-tr__food-menu food-hide">
+                  <th class="main-th__food-menu food-hide right-padding">Food type</th>
+                  <th class="main-th__food-menu food-hide">Cost</th>
+                </tr>
+              </table>
+            </section>
             <p class='main-para__room-service-confirmation-msg'>Total cost: $<span class="main__span-food-cost">0</span></p>
             <button class="main-button__confirm-room-service">Confirm room service</button>
             <p class="main-para__room-service-confirmed">Your room service order has been recorded.</p>
@@ -139,12 +141,12 @@
               <h3 class="orders-table-header">Room service orders</h3>
               <table class="main-table__customer-orders">
                 <tr class="main-tr__customer-orders">
-                  <tbody class="main-tbody__customer-info">
-                    <th class="main-th__orders">Date</th>
-                    <th class="main-th__foodType">Food</th>
-                    <th class="main-th__all-orders">Cost</th>
-                  </tbody>
+                  <th class="main-th__orders">Date</th>
+                  <th class="main-th__foodType">Food</th>
+                  <th class="main-th__all-orders">Cost</th>
                 </tr>
+                <tbody class="main-tbody__customer-info">
+                </tbody>
               </table>
             </section>
             <section class="orders-section__part-day orders-customer">

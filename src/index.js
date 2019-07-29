@@ -104,6 +104,7 @@ $('.nav-button__rooms-tab').on('click', () => {
     console.log(admin.currentCustomer)
     $('.rooms-customer-info').show();
     $('.rooms-general-info').hide();
+    $('.main-tbody__booking-info').html('');
     DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name);
   } else {
     $('.rooms-customer-info').hide();
@@ -143,9 +144,6 @@ $('.main-button__existingCustomer-search').on('click', () => {
   console.log(admin.hotel)
   admin.instantiateExistingCustomer(name);
   $('.main-input__existingCustomer-search').val('');
-  DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
-  DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
-  DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
 })
 
 $('.main-button__create-new-customer').on('click', () => {
@@ -154,6 +152,9 @@ $('.main-button__create-new-customer').on('click', () => {
   admin.createNewCustomer(name);
   DOMupdates.displayCurrentCustomerName(name)
   $('.main-input__create-new-customer').val('');
+  DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
+  DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
+  DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
 })
 
 $('.main-button__show-booking').on('click', () => {
@@ -163,6 +164,9 @@ $('.main-button__show-booking').on('click', () => {
 
 $('.booking-tonight-button').on('click', () => {
   event.preventDefault();
+  $('.main-button__confirm-booking').hide();
+  $('.main-button__room-service-yes').hide();
+  $('.main-button__room-service-no').hide();
   $('.rooms-general-info').show();
   $('.main-div__input-wrangler').hide();
   DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
@@ -171,8 +175,9 @@ $('.booking-tonight-button').on('click', () => {
 $('.main-section__rooms-page').on('click', (e) => {
   if ($(e.target).hasClass('main-td__avail-rooms')) {
     let clickedElement = $(e.target);
-    let correctId = $(clickedElement).attr('data-id')
-    let correctRoomInfo = findClickedRoomData(correctId)
+    let correctId = $(clickedElement).attr('data-id');
+    let correctRoomInfo = findClickedRoomData(correctId);
+    $('.main-button__confirm-booking').show();
     admin.potentialBooking = correctRoomInfo;
     DOMupdates.displayBookingMsg(correctRoomInfo, admin.currentCustomer.name)
   }
@@ -186,7 +191,11 @@ function findClickedRoomData(correctId) {
 
 $('.main-button__confirm-booking').on('click', () => {
   if (admin.potentialBooking !== '') {
-    admin.createNewBooking(admin.currentCustomer.id, admin.currentDate, admin.potentialBooking.number);
+    $('.main-button__confirm-booking').hide();
+    $('.main-button__room-service-yes').show();
+    $('.main-button__room-service-no').show();
+    console.log('THIS IS THE POTENTIAL BOOKING', admin.potentialBooking)
+    admin.createNewBooking(admin.currentCustomer.id, admin.potentialBooking.number);
     DOMupdates.bookingConfirmationMessage(admin.potentialBooking);
     admin.potentialBooking = '';
   } else {
@@ -245,6 +254,9 @@ $('.main-button__confirm-room-service').on('click', () => {
   admin.createNewRoomServiceOrder();
   $('.main-para__room-service-confirmed').hide();
   $('.main-button__confirm-room-service').hide();
+  $('.main-tbody__customer-info').html('');
+  $('.orders-section__breakdown orders-customer').html('');
+  DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
   DOMupdates.displayRoomServiceConfirmationMsg();
 })
 

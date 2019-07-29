@@ -51,7 +51,8 @@ const DOMupdates = {
       <td class="main-td__avail-rooms" id="td-bed-size" data-id="${room.number}">${room.bedSize}</td>
       <td class="main-td__avail-rooms" id="td-num-beds" data-id="${room.number}">${room.numBeds}</td>
       <td class="main-td__avail-rooms" id="td-cost" data-id="${room.number}">${room.costPerNight}</td>
-      </tr>`)
+      </tr>`);
+      $('.main-h3__customer-has-booking').hide();
       $('.main-span__rooms-avail-on-date').text(date);
       $('.room-content-container').hide();
       $('.room-input-container').hide();
@@ -116,7 +117,6 @@ const DOMupdates = {
   },
 
   displayAllOrdersInfo(roomServices, date) {
-    console.log('Hello')
     $('.main-span__orders-date').text(date)
     roomServices.forEach(service => {
       $('.main-tbody__room-service-info').append(
@@ -130,6 +130,9 @@ const DOMupdates = {
 
   displayCustomerOrderInfo(roomServices, name) {
     if (roomServices.length > 0) {
+      $('.orders-table-header').text('Room service orders')
+      $('.main-table__customer-orders').show();
+      console.log('AHHHHHHHHHH', roomServices)
       roomServices.forEach(service => {
         $('.main-tbody__customer-info').append(
           `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
@@ -165,6 +168,7 @@ const DOMupdates = {
   },
 
   displayCustomerBookingInfo(bookings, name) {
+    console.log(bookings)
     $('.rooms-span__customer-name').text(name)
     if (bookings.length > 0) {
       bookings.forEach(booking => {

@@ -76,58 +76,68 @@ main {
   text-align: center;
 }
 
-.avail-rooms-container {
-  background-color: white; 
-  height: 300px;
-  padding: 10px;
-  overflow: scroll;
+.rooms-general-info {
+  height: 100%;
 
-  .main-table__avail-rooms {
-    display: flex;
-    flex-direction: column;
-    
-    .main-th__avail-rooms {
-      display: flex;
-      justify-content: space-between;
-      width: 20%;
-    }
-    
-    .main-tr__avail-rooms {
-      display: flex;
-      justify-content: space-between;
-      list-style-type: none;
-      margin: 5px 0 5px 0;
+  .avail-rooms-container {
+    background-color: white; 
+    height: 300px;
+    padding: 10px 10px 10px 30px;
+    overflow: scroll;
 
-      &:hover {
-        background-color: gray;
+    .main-table__avail-rooms {
+      display: flex;
+      flex-direction: column;
+      
+      .main-th__avail-rooms {
+        display: flex;
+        justify-content: space-between;
+        width: 20%;
       }
-    }
+      
+      .main-tr__avail-rooms {
+        display: flex;
+        justify-content: space-between;
+        list-style-type: none;
+        margin: 5px 0 5px 0;
 
-    .main-td__avail-rooms {
-      display: flex;
-      justify-content: space-between;
-      font-size: 1em;
-      text-align: center;
-      width: 20%;
+        &:hover {
+          background-color: gray;
+        }
+      }
+
+      .main-td__avail-rooms {
+        display: flex;
+        justify-content: space-between;
+        font-size: 1em;
+        text-align: center;
+        width: 20%;
+      }
     }
   }
 }
 
-.main-table__food-menu {
+.room-service-container {
   align-items: center;
-  background-color: white; 
-  height: 50%;
+  background-color: $primary-background;
+  border: 1px solid black;
+  height: 300px;
   margin: auto;
   padding: 10px;
   display: flex;
   flex-direction: column;
+  margin-top: 5%;
   opacity: 1;
   overflow: scroll;
   text-align: center;
   width: 50%;
 
-  .right-padding {
-    padding-right: 30px;
+  .main-table__food-menu {
+    
+
+    .right-padding {
+      padding-right: 30px;
+    }
   }
 }
 
@@ -135,7 +145,7 @@ main {
 
   .room-content-container {
     display: flex;
-    height: 50%;
+    height: 65%;
     justify-content: space-around;
     padding: 40px;
     width: 100%;
@@ -153,7 +163,7 @@ main {
 
   .main-section__most-pop-book-date,
   .main-section__most-rooms-avail {
-    border: 2px solid black;
+    border: 1px solid black;
     height: 100%;
     padding-bottom: 20px;
     text-align: center;
@@ -277,7 +287,7 @@ main {
     border: 1px solid black;
     display: flex;
     flex-direction: column;
-    height: 50%;
+    height: 65%;
     opacity: 1;
     padding: 40px;
     text-align: center;
