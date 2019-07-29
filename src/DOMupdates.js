@@ -149,7 +149,11 @@ const DOMupdates = {
   },
 
   displayExpendituresOnDate(date, cost, name) {
+    console.log("AHHHHHHHHHHHHHH", cost)
     if (cost > 0) {
+      $('.orders-day-expenditures').text(`Room service expenditures on ${date}`);
+      // $('.orders-date').show();
+      $('.orders-day-cost').show();
       $('.orders-date').text(date);
       $('.orders-cost-on-day').text(cost.toFixed(2));
     } else {

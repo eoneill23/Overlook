@@ -255,8 +255,11 @@ $('.main-button__confirm-room-service').on('click', () => {
   $('.main-para__room-service-confirmed').hide();
   $('.main-button__confirm-room-service').hide();
   $('.main-tbody__customer-info').html('');
-  $('.orders-section__breakdown orders-customer').html('');
+  $('.orders-section__all-time').html('');
+  // $('.orders-section__part-day').html('');
   DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
+  DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
+  DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
   DOMupdates.displayRoomServiceConfirmationMsg();
 })
 
