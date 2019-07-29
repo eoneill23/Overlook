@@ -94,8 +94,8 @@ $('.nav-button__main-tab').on('click', () => {
 });
 
 $('.nav-button__rooms-tab').on('click', () => {
-  $('.main-h4__most-rooms-avail').text(admin.hotel.findDateWithMostAvailableRooms());
-  $('.main-h4__most-pop-book-date').text(admin.hotel.findMostBookedDate())
+  $('.main-span__most-rooms-avail').text(admin.hotel.findDateWithMostAvailableRooms());
+  $('.main-span__most-pop-book-date').text(admin.hotel.findMostBookedDate())
   $('.main-section__main-page').hide();
   $('.main-section__orders-page').hide();
   $('.main-section__customer-page').hide();

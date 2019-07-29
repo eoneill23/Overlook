@@ -131,45 +131,65 @@ main {
   }
 }
 
-.room-content-container {
-  display: flex;
-  height: 50%;
-  justify-content: space-around;
-  padding: 40px;
-  width: 100%;
+.main-section__rooms-page {
+
+  .room-content-container {
+    display: flex;
+    height: 50%;
+    justify-content: space-around;
+    padding: 40px;
+    width: 100%;
+  }
+
+  .main-span__most-rooms-avail,
+  .main-span__most-pop-book-date {
+    font-size: 2em;
+  }
+
+  .main-h3__most-pop-book-date,
+  .main-h3_most-rooms-avail {
+    font-size: 1.5em;
+  }
+
+  .main-section__most-pop-book-date,
+  .main-section__most-rooms-avail {
+    border: 2px solid black;
+    height: 100%;
+    padding-top: 30px;
+    text-align: center;
+    width: 45%;
+  }
+
+  .main-div__input-wrangler {
+    display: flex;
+    flex: row;
+    height: 200px;
+  }
+
+  .room-input-container,
+  .room-input-container-tonight {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    align-items: center;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    width: 35%;
+  }
+
+  .booking-date-labels {
+    height: 30px;
+    margin-bottom: 15px;
+    width: 300px;
+  }
+
+  .booking-label {
+    font-size: 1.2em;
+    font-weight: bold;
+  }
 }
 
-.main-section__most-pop-book-date,
-.main-section__most-rooms-avail {
-  border: 2px solid black;
-  height: 100%;
-  text-align: center;
-  width: 45%;
-}
 
-// .main-section__most-pop-book-date,
-// .main-section__most-rooms-avail {
-  
-// }
-
-// .main-section__rooms-page {
-
-// }
-
-.main-div__input-wrangler {
-  display: flex;
-  flex: row;
-}
-
-.room-input-container,
-.room-input-container-tonight {
-  display: flex;
-  flex-direction: column;
-  height: 100px;
-  margin: auto;
-  text-align: center;
-  width: 25%;
-}
 
 .main-div__table-header-container {
   display: flex;
