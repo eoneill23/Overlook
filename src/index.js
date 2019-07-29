@@ -127,6 +127,7 @@ $('.nav-button__orders-tab').on('click', () => {
     $('.orders-general-info').show();
     $('.orders-customer-info').hide();
     let roomServiceInfo = admin.hotel.getDataByDate(admin.currentDate, 'roomServices');
+    $('.main-tbody__room-service-info').html('');
     DOMupdates.displayAllOrdersInfo(roomServiceInfo, admin.currentDate);
   }
 })
