@@ -132,7 +132,6 @@ const DOMupdates = {
     if (roomServices.length > 0) {
       $('.orders-table-header').text('Room service orders')
       $('.main-table__customer-orders').show();
-      console.log('AHHHHHHHHHH', roomServices)
       roomServices.forEach(service => {
         $('.main-tbody__customer-info').append(
           `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
@@ -149,21 +148,20 @@ const DOMupdates = {
   },
 
   displayExpendituresOnDate(date, cost, name) {
-    console.log("AHHHHHHHHHHHHHH", cost)
     if (cost > 0) {
       $('.orders-day-expenditures').text(`Room service expenditures on ${date}`);
-      // $('.orders-date').show();
       $('.orders-day-cost').show();
-      $('.orders-date').text(date);
       $('.orders-cost-on-day').text(cost.toFixed(2));
     } else {
-      $('.orders-day-expenditures').text(`${name} doesn't have any expenditures today.`)
+      $('.orders-day-expenditures').text(`${name} doesn't have any expenditures today.`);
       $('.orders-day-cost').hide();
     }
   },
 
   displayTotalExpenditures(cost, name) {
     if (cost > 0) {
+      $('.orders-all-expenditures').text('All-time expenditures');
+      $('.orders-all-cost').show();
       $('.orders-cost-all-time').text(cost);
     } else {
       $('.orders-all-expenditures').text(`${name} has never ordered room service.`)
@@ -184,7 +182,8 @@ const DOMupdates = {
         )
       })
     } else {
-      $('.main-tbody__customer-info').html(`${name} doesn't currently have any bookings.`)
+      $('.main-table__all-bookings').html('');
+      $('.no-bookings-customer').text(`${name} doesn't have any bookings. Create one below!`);
     }
   },
 
