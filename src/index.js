@@ -107,6 +107,18 @@ $('.nav-button__orders-tab').on('click', () => {
   $('.main-section__rooms-page').hide();
   $('.main-section__customer-page').hide();
   $('.main-section__orders-page').show();
+  if (admin.currentCustomer !== undefined) {
+    console.log(admin.currentCustomer)
+    $('.orders-general-info').hide();
+    $('.orders-customer-info').show();
+    $('.orders-span__customer-name').text(admin.currentCustomer.name);
+    DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
+    DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
+    DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name)
+  } else {
+    $('.orders-general-info').show();
+    $('.orders-customer-info').hide();
+  }
 })
 
 $('.nav-button__customer-tab').on('click', () => {
@@ -257,7 +269,8 @@ $('.main-button__room-service-date').on('click', () => {
   let inputDate = $('.room-service-label ').val();
   let roomServiceInfo = admin.hotel.getDataByDate(inputDate, 'roomServices')
   $('.main-tbody__room-service-info').html('');
-  DOMupdates.displayAllOrdersInfo(roomServiceInfo);
+  DOMupdates.displayAllOrdersInfo(roomServiceInfo, inputDate);
+  $('.room-service-label ').val('');
 })
 //let correctRoomInfo = findClickedElementData(correctId, 'rooms')
 

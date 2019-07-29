@@ -19,8 +19,7 @@ class Customer {
       return totalCost;
     }, 0)
   } else {
-    //DOMupdates display error message
-    return null
+    return 0
   }
 }
 
@@ -31,8 +30,7 @@ class Customer {
         return totalCost;
       }, 0)
     } else {
-      //DOM updates display error message or should it be in if/else
-      return null
+      return 0
     }
   }
 

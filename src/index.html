@@ -94,21 +94,48 @@
         </div>
       </section>
       <section class="main-section__orders-page main-section main-hide">
-        <div class="main-orders-container">
-          <h3 class="main-h3__orders-header">Room service orders for today:</h3>
-          <table class="main-table__all-orders">
-            <tr class="main-tr__all-orders">
-              <tbody class="main-tbody__room-service-info">
-                <th class="main-th__all-orders">Food type</th>
-                <th class="main-th__all-orders">Cost</th>
-              </tbody>
-            </tr>
-          </table>
+        <div class="orders-general-info">
+          <div class="main-orders-container">
+            <h3 class="main-h3__orders-header">Room service orders for: <span class="main-span__orders-date">today</span></h3>
+            <table class="main-table__all-orders">
+              <tr class="main-tr__all-orders">
+                <tbody class="main-tbody__room-service-info">
+                  <th class="main-th__all-orders">Food type</th>
+                  <th class="main-th__all-orders">Cost</th>
+                </tbody>
+              </tr>
+            </table>
+          </div>
+          <div class="main-orders-input-container">
+            <label for="search-room-service-dates" class="room-service-labels">Search room service orders by date:</label>
+            <input type="text" class="room-service-label room-service-labels" id="search-room-service-dates" placeholder="yyyy/mm/dd">
+            <button class="main-button__room-service-date room-service-labels">Submit</button>
+          </div>
         </div>
-        <div class="main-orders-input-container">
-          <label for="search-room-service-dates" class="room-service-labels">Search room service orders by date:</label>
-          <input type="text" class="room-service-label room-service-labels" id="search-room-service-dates" placeholder="yyyy/mm/dd">
-          <button class="main-button__room-service-date room-service-labels">Submit</button>
+        <div class="orders-customer-info">
+          <h2>Room service information for <span class="orders-span__customer-name"></span></h2>
+          <div class="orders-customer-info-container">
+            <section class="orders-section__breakdown orders-customer">
+              <h3 class="orders-table-header">Room service orders</h3>
+              <table class="main-table__customer-orders">
+                <tr class="main-tr__customer-orders">
+                  <tbody class="main-tbody__customer-info">
+                    <th class="main-th__orders">Date</th>
+                    <th class="main-th__foodType">Food</th>
+                    <th class="main-th__all-orders">Cost</th>
+                  </tbody>
+                </tr>
+              </table>
+            </section>
+            <section class="orders-section__part-day orders-customer">
+              <h3 class="orders-day-expenditures orders-h3">Room service expenditures on <span class="orders-date"></span></h3>
+              <h3 class="orders-day-cost">$<span class="orders-cost-on-day"></span></h3>
+            </section>
+            <section class="orders-section__all-time orders-customer">
+              <h3 class="orders-all-expenditures orders-h3">All-time expenditures</h3>
+              <h3 class="orders-all-cost">$<span class="orders-cost-all-time"></span></h3>
+            </section>
+          </div>
         </div>
       </section>
       <section class="main-section__customer-page main-section main-hide">

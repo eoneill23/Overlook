@@ -52,7 +52,7 @@ const DOMupdates = {
       <td class="main-td__avail-rooms" id="td-num-beds" data-id="${room.number}">${room.numBeds}</td>
       <td class="main-td__avail-rooms" id="td-cost" data-id="${room.number}">${room.costPerNight}</td>
       </tr>`)
-      $('.main-span__rooms-avail-on-date').text(date)
+      $('.main-span__rooms-avail-on-date').text(date);
       $('.room-content-container').hide();
       $('.room-input-container').hide();
       $('.main-div__rooms-hide').show();
@@ -114,7 +114,8 @@ const DOMupdates = {
     $('.main-h3__customer-has-booking').show();
   },
 
-  displayAllOrdersInfo(roomServices) {
+  displayAllOrdersInfo(roomServices, date) {
+    $('.main-span__orders-date').text(date)
     roomServices.forEach(service => {
       $('.main-tbody__room-service-info').append(
         `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
@@ -123,6 +124,42 @@ const DOMupdates = {
         </tr>`
       )
     })
+  },
+
+  displayCustomerOrderInfo(roomServices, name) {
+    if (roomServices.length > 0) {
+      roomServices.forEach(service => {
+        $('.main-tbody__customer-info').append(
+          `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
+          <td class="orders-td__food-type" data-id="${service.totalCost}">${service.date}</td>
+          <td class="orders-td__food-type service-food" data-id="${service.totalCost}">${service.food}</td>
+          <td class="orders-td__food-type" data-id="${service.totalCost}">$${service.totalCost}</td>
+          </tr>`
+        )
+      })
+    } else {
+      $('.main-table__customer-orders').hide();
+      $('.orders-table-header').text(`${name} doesn't have any room service orders.`)
+    }
+  },
+
+  displayExpendituresOnDate(date, cost, name) {
+    if (cost > 0) {
+      $('.orders-date').text(date);
+      $('.orders-cost-on-day').text(cost);
+    } else {
+      $('.orders-day-expenditures').text(`${name} doesn't have any expenditures today.`)
+      $('.orders-day-cost').hide();
+    }
+  },
+
+  displayTotalExpenditures(cost, name) {
+    if (cost > 0) {
+      $('.orders-cost-all-time').text(cost);
+    } else {
+      $('.orders-all-expenditures').text(`${name} has never ordered room service.`)
+      $('.orders-all-cost').hide();
+    }
   }
 
 }
