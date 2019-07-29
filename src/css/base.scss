@@ -92,14 +92,13 @@ main {
   }
   
   .main-tr__avail-rooms {
-    border: 1px solid black;
     display: flex;
     justify-content: space-between;
     list-style-type: none;
     margin: 5px 0 5px 0;
 
     &:hover {
-      background-color: purple;
+      background-color: gray;
     }
   }
 
@@ -189,8 +188,6 @@ main {
   }
 }
 
-
-
 .main-div__table-header-container {
   display: flex;
 
@@ -243,3 +240,84 @@ main {
     width: 100%;
   }
 }
+
+.main-section__orders-page {
+  padding-top: 5%;
+
+  .main-orders-container {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    text-align: center;
+    width: 30%;
+
+    .main-table__all-orders {
+      background-color: white; 
+      // height: 50%;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 1;
+      overflow: scroll;
+    }
+
+    .main-tr__food-menu {
+      width: 100%;
+    }
+
+    .main-td__food-type {
+      width: 50%;
+    }
+  }
+
+  .main-orders-input-container {
+    height: 150px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    width: 30%;
+
+    .room-service-labels {
+      height: 30px;
+      margin-bottom: 15px;
+      width: 250px;
+    }
+
+  }
+}
+
+
+// background-color: white; 
+// height: 50%;
+// padding: 10px;
+// display: flex;
+// flex-direction: column;
+// opacity: 1;
+// overflow: scroll;
+
+// .main-th__avail-rooms {
+//   display: flex;
+//   justify-content: space-between;
+//   width: 20%;
+// }
+
+// .main-tr__avail-rooms {
+//   display: flex;
+//   justify-content: space-between;
+//   list-style-type: none;
+//   margin: 5px 0 5px 0;
+
+//   &:hover {
+//     background-color: gray;
+//   }
+// }
+
+// .main-td__avail-rooms {
+//   display: flex;
+//   justify-content: space-between;
+//   font-size: 1em;
+//   text-align: center;
+//   width: 20%;
+// }

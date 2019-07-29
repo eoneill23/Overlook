@@ -75,7 +75,6 @@ const DOMupdates = {
   },
 
   bookingConfirmationMessage(room) {
-    console.log('THIS IS THE ROOM', room)
     $('.main-span__booked-room').text(room.number);
     $('.main-span__booked-cost').text(room.costPerNight);
     $('.main-para__booking-confirmation').show();
@@ -89,7 +88,7 @@ const DOMupdates = {
       $('.main-table__food-menu').append(
         `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
         <td class="main-td__food-type right-padding" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
-        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">${service.totalCost}</td>
+        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">$${service.totalCost}</td>
         <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}"><input type=checkbox class="main-input__food-type"></td>
         </tr>`
       )
@@ -113,6 +112,17 @@ const DOMupdates = {
     let firstName = name.split(' ')[0];
     $('.main-span__customer-has-booking-name').text(firstName);
     $('.main-h3__customer-has-booking').show();
+  },
+
+  displayAllOrdersInfo(roomServices) {
+    roomServices.forEach(service => {
+      $('.main-tbody__room-service-info').append(
+        `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
+        <td class="main-td__food-type right-padding" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
+        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">$${service.totalCost}</td>
+        </tr>`
+      )
+    })
   }
 
 }

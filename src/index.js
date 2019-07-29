@@ -247,6 +247,18 @@ $('.main-section__rooms-page').on('click', (e) => {
     DOMupdates.appendAvailableRooms(filteredRooms, admin.currentDate);
   }
 })
+
+$('.nav-button__orders-tab').on('click', () => {
+  let roomServiceInfo = admin.hotel.getDataByDate(admin.currentDate, 'roomServices')
+  DOMupdates.displayAllOrdersInfo(roomServiceInfo)
+})
+
+$('.main-button__room-service-date').on('click', () => {
+  let inputDate = $('.room-service-label ').val();
+  let roomServiceInfo = admin.hotel.getDataByDate(inputDate, 'roomServices')
+  $('.main-tbody__room-service-info').html('');
+  DOMupdates.displayAllOrdersInfo(roomServiceInfo);
+})
 //let correctRoomInfo = findClickedElementData(correctId, 'rooms')
 
 // function returnUniqueFoodItems() {

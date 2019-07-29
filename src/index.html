@@ -93,7 +93,24 @@
           <p class="main-para__room-service-confirmed">Your room service order has been recorded.</p>
         </div>
       </section>
-      <section class="main-section__orders-page main-section main-hide">Order content goes here</section>
+      <section class="main-section__orders-page main-section main-hide">
+        <div class="main-orders-container">
+          <h3 class="main-h3__orders-header">Room service orders for today:</h3>
+          <table class="main-table__all-orders">
+            <tr class="main-tr__all-orders">
+              <tbody class="main-tbody__room-service-info">
+                <th class="main-th__all-orders">Food type</th>
+                <th class="main-th__all-orders">Cost</th>
+              </tbody>
+            </tr>
+          </table>
+        </div>
+        <div class="main-orders-input-container">
+          <label for="search-room-service-dates" class="room-service-labels">Search room service orders by date:</label>
+          <input type="text" class="room-service-label room-service-labels" id="search-room-service-dates" placeholder="yyyy/mm/dd">
+          <button class="main-button__room-service-date room-service-labels">Submit</button>
+        </div>
+      </section>
       <section class="main-section__customer-page main-section main-hide">
         <form class="main-form__existingCustomer-search">
           <div class="main-div__existingCustomer-search main-customer-div">
@@ -104,7 +121,7 @@
             Please check your spelling or create a new customer!</p>
           </div>
           <div class="error-show main-customer-div">
-            <label for="create-new-customer" class="customer-label">Or, create a new customer:</label>
+            <label for="create-new-customer" class="customer-label customer-inputs">Or, create a new customer:</label>
             <input class="main-input__create-new-customer customer-inputs" id="createNewCustomer">
             <button class="main-button__create-new-customer customer-inputs">Submit</button>
           </div>
