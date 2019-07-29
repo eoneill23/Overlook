@@ -146,7 +146,7 @@ const DOMupdates = {
   displayExpendituresOnDate(date, cost, name) {
     if (cost > 0) {
       $('.orders-date').text(date);
-      $('.orders-cost-on-day').text(cost);
+      $('.orders-cost-on-day').text(cost.toFixed(2));
     } else {
       $('.orders-day-expenditures').text(`${name} doesn't have any expenditures today.`)
       $('.orders-day-cost').hide();

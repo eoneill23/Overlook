@@ -112,9 +112,10 @@ $('.nav-button__orders-tab').on('click', () => {
     $('.orders-general-info').hide();
     $('.orders-customer-info').show();
     $('.orders-span__customer-name').text(admin.currentCustomer.name);
+    $('.main-tbody__customer-info').html('');
     DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
     DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
-    DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name)
+    DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
   } else {
     $('.orders-general-info').show();
     $('.orders-customer-info').hide();
