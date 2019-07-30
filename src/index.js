@@ -217,7 +217,7 @@ $('.main-section__rooms-page').on('click', (e) => {
     let correctCost = $(clickedElement).closest('tr').attr('data-id');
     let correctRoomServiceInfo = findClickedRoomServiceData(correctCost);
     admin.potentialRoomServices.push(correctRoomServiceInfo);
-    addUpRoomServiceCost()
+    addUpRoomServiceCost();
   } else if ($(e.target).is('.main-input__food-type')) {
     let clickedElement = e.target;
     let correctCost = $(clickedElement).closest('tr').attr('data-id');
