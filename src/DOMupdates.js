@@ -165,7 +165,7 @@ const DOMupdates = {
     if (cost > 0) {
       $('.orders-all-expenditures').text('All-time expenditures');
       $('.orders-all-cost').show();
-      $('.orders-cost-all-time').text(cost);
+      $('.orders-cost-all-time').text(cost.toFixed(2));
     } else {
       $('.orders-all-expenditures').text(`${name} has never ordered room service.`)
       $('.orders-all-cost').hide();
