@@ -37,6 +37,7 @@ const DOMupdates = {
   },
 
   appendAvailableRooms(availableRooms, date, className) {
+    $('.main-tbody__avail-rooms').empty();
     availableRooms.forEach(room => {
       $('.main-tbody__avail-rooms').append(
         `<tr class="main-tr__avail-rooms data-id="${room.number}">

@@ -179,6 +179,7 @@ $('.booking-tonight-button').on('click', () => {
 
 $('.main-section__rooms-page').on('click', (e) => {
   if ($(e.target).hasClass('main-td__avail-rooms')) {
+    $('.booking-confirm-div').show();
     let clickedElement = $(e.target);
     let correctId = $(clickedElement).attr('data-id');
     let correctRoomInfo = findClickedRoomData(correctId);
