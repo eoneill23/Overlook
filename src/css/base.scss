@@ -155,7 +155,8 @@ main {
         }
       }
 
-      .main-td__avail-rooms {
+      .main-td__avail-rooms,
+      .main-td__avail-rooms2 {
         display: flex;
         justify-content: space-between;
         font-size: 1em;

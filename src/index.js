@@ -164,7 +164,7 @@ $('.main-button__create-new-customer').on('click', () => {
 
 $('.main-button__show-booking').on('click', () => {
   event.preventDefault();
-  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate, 'avail-rooms');
 })
 
 $('.booking-tonight-button').on('click', () => {
@@ -174,7 +174,7 @@ $('.booking-tonight-button').on('click', () => {
   $('.main-button__room-service-no').hide();
   $('.rooms-general-info').show();
   $('.main-div__input-wrangler').hide();
-  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate, 'avail-rooms');
 })
 
 $('.main-section__rooms-page').on('click', (e) => {
@@ -272,8 +272,11 @@ $('.main-button__confirm-room-service').on('click', () => {
 
 $('.main-button__specified-date').on('click', ( )=> {
   let inputDate = $('.main-input__specified-date').val()
+  $('.booking-confirm-div').hide();
+  $('.main-button__room-service-yes').hide();
+  $('.main-button__room-service-no').hide();
   admin.hotel.findAvailableRooms(inputDate);
-  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, inputDate);
+  DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, inputDate, 'avail-rooms2');
   $('.main-div__input-wrangler').hide();
   admin.hotel.availableRooms;
 })
@@ -284,7 +287,7 @@ $('.main-button__create-tonight').on('click', () => {
   if (admin.currentCustomer !== undefined && admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo')) {
     DOMupdates.displayCustomerHasBookingMsg(admin.currentCustomer.name);
   } else if (admin.currentCustomer !== undefined && admin.currentCustomer.findIfCustomerHasBookingTonight(admin.currentDate, 'bookingInfo') == false) {
-    DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate);
+    DOMupdates.appendAvailableRooms(admin.hotel.availableRooms, admin.currentDate, 'avail-rooms');
   } else {
     DOMupdates.selectCustomerMsg();
   }
@@ -299,7 +302,7 @@ $('.main-section__rooms-page').on('click', (e) => {
     })
     $('.main-tbody__avail-rooms').html('');
     $('.main-div__input-wrangler').hide();
-    DOMupdates.appendAvailableRooms(filteredRooms, admin.currentDate);
+    DOMupdates.appendAvailableRooms(filteredRooms, admin.currentDate, 'avail-rooms');
   }
 })
 
@@ -320,4 +323,12 @@ $('.main-button__room-service-no').on('click', () => {
   $('.food-hide').fadeOut(2000);
   $('.rooms-general-info').hide();
   $('.rooms-customer-info').fadeIn(2000);
+})
+
+$('.spec-date-back-btn').on('click', () => {
+  $('.main-div__rooms-hide').hide();
+  $('.room-input-container').fadeIn(2000);
+  $('.room-content-container').fadeIn(2000);
+  $('.main-div__input-wrangler').fadeIn(2000);
+  $('.room-input-container-tonight').fadeIn(2000);
 })

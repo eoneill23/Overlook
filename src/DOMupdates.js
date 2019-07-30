@@ -41,16 +41,16 @@ const DOMupdates = {
     //$(.main-button__show-booking).show()
   },
 
-  appendAvailableRooms(availableRooms, date) {
+  appendAvailableRooms(availableRooms, date, className) {
     availableRooms.forEach(room => {
       $('.main-tbody__avail-rooms').append(
       `<tr class="main-tr__avail-rooms data-id="${room.number}">
-      <td class="main-td__avail-rooms id="td-room-num" data-id="${room.number}">${room.number}</td>
-      <td class="main-td__avail-rooms" id="td-room-type" data-id="${room.number}">${room.roomType}</td>
-      <td class="main-td__avail-rooms" id="td-bidet" data-id="${room.number}">${room.bidet}</td>
-      <td class="main-td__avail-rooms" id="td-bed-size" data-id="${room.number}">${room.bedSize}</td>
-      <td class="main-td__avail-rooms" id="td-num-beds" data-id="${room.number}">${room.numBeds}</td>
-      <td class="main-td__avail-rooms" id="td-cost" data-id="${room.number}">${room.costPerNight}</td>
+      <td class="main-td__${className}" id="td-room-num" data-id="${room.number}">${room.number}</td>
+      <td class="main-td__${className}" id="td-room-type" data-id="${room.number}">${room.roomType}</td>
+      <td class="main-td__${className}" id="td-bidet" data-id="${room.number}">${room.bidet}</td>
+      <td class="main-td__${className}" id="td-bed-size" data-id="${room.number}">${room.bedSize}</td>
+      <td class="main-td__${className}" id="td-num-beds" data-id="${room.number}">${room.numBeds}</td>
+      <td class="main-td__${className}" id="td-cost" data-id="${room.number}">${room.costPerNight}</td>
       </tr>`);
       $('.main-h3__customer-has-booking').hide();
       $('.main-span__rooms-avail-on-date').text(date);
