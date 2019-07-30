@@ -15,7 +15,7 @@ For this project, we were tasked with creating a hotel management application fo
  * View the live version of your code on a local host by running `npm run start`.
   
 ## Demonstration:
-
+![Overlook_gif](./src/images/overlook-gif.gif)
 
 ### Authors:
 * Eric O'Neill ([eoneill23](https://github.com/eoneill23))
