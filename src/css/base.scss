@@ -12,6 +12,7 @@ body {
   background-image: url('../images/hotel-background.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
+  font-family: 'Roboto', sans-serif;
   height: 90vh;
   margin: 0;
   position: relative;
@@ -57,7 +58,7 @@ nav {
   } 
 
   :hover {
-    background-color: purple;
+    background-color: gray;
   }
 }
 
@@ -77,8 +78,7 @@ main {
   height: 100px;
 }
 
-.main-div__rooms-hide,
-.food-hide  {
+.main-div__rooms-hide {
   height: 100%;
   padding: 30px;
 }

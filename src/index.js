@@ -132,6 +132,10 @@ $('.nav-button__orders-tab').on('click', () => {
   }
 })
 
+function determineIfCustomerHasBookingTonight(roomServices) {
+  return roomServices.reduce((bookingArray, book))
+}
+
 $('.nav-button__customer-tab').on('click', () => {
   $('.main-section__main-page').hide();
   $('.main-section__orders-page').hide();
@@ -264,7 +268,6 @@ $('.main-button__confirm-room-service').on('click', () => {
   $('.food-hide').fadeOut(2000);
   $('.rooms-general-info').hide();
   $('.rooms-customer-info').fadeIn(2000);
-  // $('.rooms-general-info').show();
 })
 
 $('.main-button__specified-date').on('click', ( )=> {
@@ -307,14 +310,14 @@ $('.main-button__room-service-date').on('click', () => {
   DOMupdates.displayAllOrdersInfo(roomServiceInfo, inputDate);
   $('.room-service-label ').val('');
 })
-//let correctRoomInfo = findClickedElementData(correctId, 'rooms')
 
-// function returnUniqueFoodItems() {
-//   return admin.roomServices.reduce((acc, roomService) => {
-//     if (!acc.includes(roomService.food)) {
-//       acc.push(roomService)
-//     }
-//     console.log(acc)
-//     return acc;
-//   }, [])
-// }
+$('.main-button__room-service-no').on('click', () => {
+  DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
+  DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
+  DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
+  DOMupdates.displayRoomServiceConfirmationMsg();
+  DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name);
+  $('.food-hide').fadeOut(2000);
+  $('.rooms-general-info').hide();
+  $('.rooms-customer-info').fadeIn(2000);
+})
