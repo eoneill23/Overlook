@@ -178,11 +178,22 @@ const DOMupdates = {
     }
   },
 
-  displayCustomerBookingInfo(bookings, name) {
+  displayCustomerBookingInfo(bookings, name, value) {
     $('.booking-tonight-button').hide();
     $('.no-bookings-customer').empty();
     $('.rooms-span__customer-name').text(name)
-    if (bookings.length > 0) {
+    if (bookings.length > 0 && value === true) {
+      bookings.forEach(booking => {
+        $('.main-tbody__booking-info').append(
+          `<tr class="main-tr__booking-info">
+          <td class="bookings-td__booking-info">${booking.date}</td>
+          <td class="bookings-td__booking-info bookings-margin-right">${booking.roomNumber}</td>
+          </tr>`
+        )
+      })
+    } else if(bookings.length > 0) {
+      $('.booking-tonight-button').show();
+      $('.no-bookings-customer').text(`${name} doesn't have a a booking tonight. Create one below!`);
       bookings.forEach(booking => {
         $('.main-tbody__booking-info').append(
           `<tr class="main-tr__booking-info">

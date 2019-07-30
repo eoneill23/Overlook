@@ -105,12 +105,20 @@ $('.nav-button__rooms-tab').on('click', () => {
     $('.rooms-customer-info').show();
     $('.rooms-general-info').hide();
     $('.main-tbody__booking-info').html('');
-    DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name);
+    let bookingTonight = determineIfCustomerHasBookingTonight(admin.currentDate)
+    DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name, bookingTonight);
   } else {
     $('.rooms-customer-info').hide();
     $('.rooms-general-info').show();
   }
 })
+
+function determineIfCustomerHasBookingTonight(date) {
+  let returnValue = admin.currentCustomer.bookingInfo.filter(booking => {
+    return booking.date === date;
+  })
+  return returnValue > 0 ? true : false;
+}
 
 $('.nav-button__orders-tab').on('click', () => {
   $('.main-section__main-page').hide();
@@ -131,10 +139,6 @@ $('.nav-button__orders-tab').on('click', () => {
     DOMupdates.displayAllOrdersInfo(roomServiceInfo, admin.currentDate);
   }
 })
-
-function determineIfCustomerHasBookingTonight(roomServices) {
-  return roomServices.reduce((bookingArray, book))
-}
 
 $('.nav-button__customer-tab').on('click', () => {
   $('.main-section__main-page').hide();
@@ -169,6 +173,7 @@ $('.main-button__show-booking').on('click', () => {
 
 $('.booking-tonight-button').on('click', () => {
   event.preventDefault();
+  $('.spec-date-back-btn').hide();
   $('.main-button__confirm-booking').hide();
   $('.main-button__room-service-yes').hide();
   $('.main-button__room-service-no').hide();
