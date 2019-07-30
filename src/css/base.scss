@@ -1,4 +1,8 @@
 $primary-background: white;
+$primary-border: 1px solid black;
+$label-width: 300px;
+$label-height: 30px;
+$label-margin: 15px;
 
 * {
   box-sizing: border-box;
@@ -30,6 +34,13 @@ header {
 
 .header-p__current-customer {
   margin-bottom: 0;
+}
+
+.button {
+  border: $primary-border;
+  height: $label-height;
+  width: $label-width;
+  margin-bottom: $label-margin;
 }
 
 nav {
@@ -69,6 +80,7 @@ main {
 .main-div__rooms-hide,
 .food-hide  {
   height: 100%;
+  padding: 30px;
 }
 
 .food-hide {
@@ -228,6 +240,7 @@ main {
 
   .rooms-customer-info {
     height: 100%;
+    text-align: center;
     width: 100%;
   }
 
@@ -282,6 +295,20 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .booking-tonight-button {
+    margin: auto;
+  }
+
+  .booking-confirm-div {
+    margin: auto;
+    text-align: center;
+    width: 70%;
+
+    .main-button__confirm-booking {
+      margin: auto;
+    }
   }
 }
 

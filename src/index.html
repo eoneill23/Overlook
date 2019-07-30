@@ -46,11 +46,11 @@
             <div class="room-input-container">
               <label for="search-booking-dates" class="booking-date-labels booking-label">Search available rooms by date:</label>
               <input type="text" class="main-input__specified-date booking-date-labels" id="search-booking-dates" placeholder="yyyy/mm/dd">
-              <button class="main-button__specified-date booking-date-labels">Submit</button>
+              <button class="main-button__specified-date booking-date-labels button">Submit</button>
             </div>
             <div class="room-input-container-tonight">
               <label for="create-booking-tonight" class="booking-date-labels booking-label">Or, create a booking for tonight:</label>
-              <button class="main-button__create-tonight booking-date-labels">Submit</button>
+              <button class="main-button__create-tonight booking-date-labels button">Submit</button>
             </div>
           </div>
           <h3 class="main-h3__customer-has-booking">It looks like <span class="main-span__customer-has-booking-name"></span> already has a booking for tonight.</h3>
@@ -85,13 +85,14 @@
                 </tbody>
               </table>
             </section>
-            <!-- <button class="main-button__show-booking">Show available rooms</button> -->
-            <p class='main-para__booking-confirmation-msg'><span class="main_span__first-name"></span>, would you like to book room number <span class="main_span__room-number"></span> tonight for $<span class="main_span__cost"></span>?</p>
-            <button class="main-button__confirm-booking">Confirm booking</button>
+            <div class="booking-confirm-div">
+              <p class='main-para__booking-confirmation-msg'><span class="main_span__first-name"></span>, would you like to book room number <span class="main_span__room-number"></span> tonight for $<span class="main_span__cost"></span>?</p>
+              <button class="main-button__confirm-booking button">Confirm booking</button>
+            </div>
             <p class="main-para__booking-error-msg">Please select a room from the options above to confirm your booking!</p>
             <p class="main-para__booking-confirmation">Congratulations! You have booked room <span class="main-span__booked-room"></span> for $<span class="main-span__booked-cost"></span>. Would you like to order room service?</p>
-            <button class="main-button__room-service-yes">Yes!</button>
-            <button class="main-button__room-service-no">No.</button>
+            <button class="main-button__room-service-yes button">Yes!</button>
+            <button class="main-button__room-service-no button">No.</button>
           </div>
           <div class="food-hide">
             <section class="room-service-container">
@@ -103,7 +104,7 @@
               </table>
             </section>
             <p class='main-para__room-service-confirmation-msg'>Total cost: $<span class="main__span-food-cost">0</span></p>
-            <button class="main-button__confirm-room-service">Confirm room service</button>
+            <button class="main-button__confirm-room-service button">Confirm room service</button>
             <p class="main-para__room-service-confirmed">Your room service order has been recorded.</p>
           </div>
       </div>
@@ -121,7 +122,7 @@
               </table>
             </section>
             <p class="no-bookings-customer"></p>
-            <button class="booking-tonight-button">Create a booking for tonight</button>
+            <button class="booking-tonight-button button">Create a booking for tonight</button>
         </section>
       </div>
       </section>
@@ -141,7 +142,7 @@
           <div class="main-orders-input-container">
             <label for="search-room-service-dates" class="room-service-labels">Search room service orders by date:</label>
             <input type="text" class="room-service-label room-service-labels" id="search-room-service-dates" placeholder="yyyy/mm/dd">
-            <button class="main-button__room-service-date room-service-labels">Submit</button>
+            <button class="main-button__room-service-date room-service-labels button">Submit</button>
           </div>
         </div>
         <div class="orders-customer-info">
