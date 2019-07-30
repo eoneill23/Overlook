@@ -37,7 +37,6 @@ class Hotel {
 
   returnNumRoomsAvailable(date) {
     let correctBookingData = this.getDataByDate(date, 'bookings');
-    //need to have unoccupied rooms in order to be able to book them
     let roomsAvailable = this.rooms.length - correctBookingData.length;
     DOMupdates.displayAvailRoomsForToday(roomsAvailable);
     return roomsAvailable;
