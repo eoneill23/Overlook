@@ -415,8 +415,10 @@ main {
       padding: 10px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      margin: auto;
       opacity: 1;
+      width: 70%;
     }
 
     .main-tr__food-menu {
