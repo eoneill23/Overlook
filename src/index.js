@@ -275,7 +275,9 @@ $('.main-button__confirm-room-service').on('click', () => {
 })
 
 $('.main-button__specified-date').on('click', ( )=> {
-  let inputDate = $('.main-input__specified-date').val()
+  let inputDate = $('.main-input__specified-date').val();
+  $('.main-para__filter-room-type').hide();
+  $('.inputs').hide();
   $('.booking-confirm-div').hide();
   $('.main-button__room-service-yes').hide();
   $('.main-button__room-service-no').hide();
@@ -327,6 +329,9 @@ $('.main-button__room-service-no').on('click', () => {
   DOMupdates.displayRoomServiceConfirmationMsg();
   let bookingTonight = determineIfCustomerHasBookingTonight(admin.currentDate);
   DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name, bookingTonight);
+  admin.hotel.returnPctRoomsOccupied(admin.currentDate);
+  admin.hotel.returnRevenueForToday(admin.currentDate);
+  admin.hotel.returnNumRoomsAvailable(admin.currentDate);
   $('.food-hide').fadeOut(2000);
   $('.rooms-general-info').hide();
   $('.rooms-customer-info').fadeIn(2000);

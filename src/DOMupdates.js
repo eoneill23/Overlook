@@ -11,11 +11,11 @@ const DOMupdates = {
   },
 
   displayPctOccupiedForToday(percentage) {
-    $('.main-span__pct-occupied').text(percentage)
+    $('.main-span__pct-occupied').text(percentage);
   },
 
   displayAvailRoomsForToday(numRooms) {
-    $('.main-span__rooms-available').text(numRooms)
+    $('.main-span__rooms-available').text(numRooms);
   },
 
   displayNoExistingCustomerMsg(name) {
