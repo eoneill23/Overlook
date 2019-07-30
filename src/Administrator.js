@@ -5,17 +5,17 @@ import Hotel from '../src/Hotel.js'
 import DOMupdates from '../src/DOMupdates.js'
 
 class Administrator {
-    constructor(allData) {
-      this.customers = allData.customerData;
-      this.rooms = allData.roomData;
-      this.bookings = allData.bookingData;
-      this.roomServices = allData.roomServiceData;
-      this.currentDate = this.generateCurrentDate();
-      this.currentCustomer;
-      this.hotel = new Hotel(allData, this.currentDate);
-      this.potentialBooking = '';
-      this.potentialRoomServices = [];
-    }
+  constructor(allData) {
+    this.customers = allData.customerData;
+    this.rooms = allData.roomData;
+    this.bookings = allData.bookingData;
+    this.roomServices = allData.roomServiceData;
+    this.currentDate = this.generateCurrentDate();
+    this.currentCustomer;
+    this.hotel = new Hotel(allData, this.currentDate);
+    this.potentialBooking = '';
+    this.potentialRoomServices = [];
+  }
 
   generateCurrentDate() {
     let today = new Date();

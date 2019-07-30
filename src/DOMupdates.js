@@ -19,15 +19,15 @@ const DOMupdates = {
   },
 
   displayNoExistingCustomerMsg(name) {
-    $('.main-input__existingCustomer-search').css({"border-color": "red", "border-width":"1px", "border-style":"solid"});
-    $('.main-div__existingCustomer-search').css({"border-color": "red", "border-width":"2px", "border-style":"solid"});
+    $('.main-input__existingCustomer-search').css({"border-color": "red", "border-width": "1px", "border-style": "solid"});
+    $('.main-div__existingCustomer-search').css({"border-color": "red", "border-width": "2px", "border-style": "solid"});
     $('.main-span_errorName').text(name);
     $('.main-para__errorMsg').show();
     $('.error-show').show();
     setTimeout( () => {
       $('.main-para__errorMsg').hide();
-      $('.main-input__existingCustomer-search').css({"border-color": "", "border-width":"", "border-style":""});
-      $('.main-div__existingCustomer-search').css({"border-color": "", "border-width":"", "border-style":""});
+      $('.main-input__existingCustomer-search').css({"border-color": "", "border-width": "", "border-style": ""});
+      $('.main-div__existingCustomer-search').css({"border-color": "", "border-width": "", "border-style": ""});
     }, 5000)
   },
 
@@ -39,7 +39,7 @@ const DOMupdates = {
   appendAvailableRooms(availableRooms, date, className) {
     availableRooms.forEach(room => {
       $('.main-tbody__avail-rooms').append(
-      `<tr class="main-tr__avail-rooms data-id="${room.number}">
+        `<tr class="main-tr__avail-rooms data-id="${room.number}">
       <td class="main-td__${className}" id="td-room-num" data-id="${room.number}">${room.number}</td>
       <td class="main-td__${className}" id="td-room-type" data-id="${room.number}">${room.roomType}</td>
       <td class="main-td__${className}" id="td-bidet" data-id="${room.number}">${room.bidet}</td>
@@ -93,7 +93,7 @@ const DOMupdates = {
     })
   },
 
-  displayRoomServiceMessage(totalCost, name) {
+  displayRoomServiceMessage(totalCost) {
     $('.main__span-food-cost').text(totalCost.toFixed(2))
     $('.main-para__room-service-confirmation-msg').show();
     $('.main-button__confirm-room-service').show();
@@ -185,7 +185,7 @@ const DOMupdates = {
           </tr>`
         )
       })
-    } else if(bookings.length > 0) {
+    } else if (bookings.length > 0) {
       $('.booking-tonight-button').show();
       $('.no-bookings-customer').text(`${name} doesn't have a a booking tonight. Create one below!`);
       bookings.forEach(booking => {

@@ -30,7 +30,6 @@ Promise.all([customerData, roomData, bookingData, roomServiceData])
     admin.hotel.returnRevenueForToday(admin.hotel.currentDate);
     admin.hotel.returnPctRoomsOccupied(admin.hotel.currentDate);
     admin.hotel.returnNumRoomsAvailable(admin.hotel.currentDate);
-    console.log(admin)
     return combinedData;
   })
   .catch(error => console.log(`Error in promises ${error}`));
@@ -67,8 +66,8 @@ const date = () => {
     " " +
     current_datetime.getDate() +
     ", " +
-    current_datetime.getFullYear();
-    DOMupdates.displayDate(formatted_date)
+  current_datetime.getFullYear();
+  DOMupdates.displayDate(formatted_date)
   return formatted_date;
 };
 date();
@@ -101,7 +100,6 @@ $('.nav-button__rooms-tab').on('click', () => {
   $('.main-section__customer-page').hide();
   $('.main-section__rooms-page').show();
   if (admin.currentCustomer !== undefined) {
-    console.log(admin.currentCustomer)
     $('.rooms-customer-info').show();
     $('.rooms-general-info').hide();
     $('.main-tbody__booking-info').html('');
@@ -126,7 +124,6 @@ $('.nav-button__orders-tab').on('click', () => {
   $('.main-section__customer-page').hide();
   $('.main-section__orders-page').show();
   if (admin.currentCustomer !== undefined) {
-    console.log(admin.currentCustomer)
     $('.orders-general-info').hide();
     $('.orders-customer-info').show();
     $('.orders-span__customer-name').text(admin.currentCustomer.name);
@@ -254,7 +251,7 @@ function subtractRoomServiceCost(cost) {
     acc += roomService.totalCost;
     return acc
   }, 0)
-  DOMupdates.displayRoomServiceMessage(totalCost, admin.currentCustomer.name)
+  DOMupdates.displayRoomServiceMessage(totalCost)
 }
 
 $('.main-button__confirm-room-service').on('click', () => {

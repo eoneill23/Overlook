@@ -13,15 +13,15 @@ class Customer {
 
   returnRoomServiceCostOnDate(date) {
     if (this.validateCustomerInformation()) {
-    let correctRoomServiceInfo = this.getCategoryDataOnDate(date, 'roomServiceInfo');
-    return correctRoomServiceInfo.reduce((totalCost, service) => {
-      totalCost += service.totalCost
-      return totalCost;
-    }, 0)
-  } else {
-    return 0
+      let correctRoomServiceInfo = this.getCategoryDataOnDate(date, 'roomServiceInfo');
+      return correctRoomServiceInfo.reduce((totalCost, service) => {
+        totalCost += service.totalCost
+        return totalCost;
+      }, 0)
+    } else {
+      return 0
+    }
   }
-}
 
   returnAllTimeRoomServiceCost() {
     if (this.validateCustomerInformation()) {

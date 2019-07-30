@@ -5,7 +5,8 @@ import Booking from '../src/Bookings.js'
 
 describe('Booking', () => {
   
-	it('should be a function', () => {
-		expect(Booking).to.be.a('function');
-	});
+  it('should be a function', () => {
+    expect(Booking).to.be.a('function');
+  });
+	
 })

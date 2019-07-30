@@ -37,8 +37,8 @@ describe('Administrator', () => {
 
   it('should be able to create a new room service order', () => {
     admin.potentialRoomServices = [
-      {"userID":1,"date":"2019/07/29","food":"Rustic Concrete Sandwich","totalCost":14.9},
-      {"userID":1,"date":"2019/10/18","food":"Rustic Cotton Sandwich","totalCost":17.33}
+      {"userID": 1, "date": "2019/07/29", "food": "Rustic Concrete Sandwich", "totalCost": 14.9},
+      {"userID": 1, "date": "2019/10/18", "food": "Rustic Cotton Sandwich", "totalCost": 17.33}
     ]
     admin.createNewRoomServiceOrder();
     expect(admin.currentCustomer.roomServiceInfo.length).to.equal(5);
