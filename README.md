@@ -9,7 +9,13 @@ For this project, we were tasked with creating a hotel management application fo
   * Use array and object prototype methods to manipulate data.
   * Use a fetch API to pull data from a server.
   
+## Install/Setup instructions
+ * Clone the repo.
+ * Run `npm install` to install all of the necessary dependencies.
+ * View the live version of your code on a local host by running `npm run start`.
+  
 ## Demonstration:
 
 
-## Install/Setup instructions
+### Authors:
+* Eric O'Neill ([eoneill23](https://github.com/eoneill23))
