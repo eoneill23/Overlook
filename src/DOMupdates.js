@@ -179,6 +179,7 @@ const DOMupdates = {
   },
 
   displayCustomerBookingInfo(bookings, name, value) {
+    console.log('AHHHHHHHHHH', value)
     $('.booking-tonight-button').hide();
     $('.no-bookings-customer').empty();
     $('.rooms-span__customer-name').text(name)
