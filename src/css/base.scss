@@ -42,6 +42,10 @@ header {
   height: $label-height;
   width: $label-width;
   margin-bottom: $label-margin;
+
+  &:hover {
+    background-color: gray;
+  }
 }
 
 nav {
@@ -50,7 +54,8 @@ nav {
   .nav-button {
     display: inline;
     float: left;
-    font-size: 2em;
+    font-family: 'Roboto';
+    font-size: 1.75em;
     height: 50px;
     list-style-type: none;
     padding: 0;
@@ -275,10 +280,18 @@ main {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+
+    &:hover {
+      background-color: gray;
+    }
   }
 
   .main-tr__booking-info {
     width: 230px;
+
+    &:hover {
+      background-color: gray;
+    }
   }
 
   .bookings-td__booking-info,
@@ -375,22 +388,27 @@ main {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto 0 auto;
+    overflow: scroll;
     text-align: center;
     width: 50%;
-
+    
     .main-table__all-orders {
       background-color: white; 
       // height: 50%;
+      // height: 200px;
       padding: 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       opacity: 1;
-      overflow: scroll;
     }
 
     .main-tr__food-menu {
       width: 100%;
+
+      &:hover {
+        background-color: gray;
+      }
     }
 
     .main-td__food-type {

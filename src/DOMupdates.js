@@ -117,19 +117,28 @@ const DOMupdates = {
   },
 
   displayAllOrdersInfo(roomServices, date) {
-    $('.main-span__orders-date').text(date)
-    roomServices.forEach(service => {
-      $('.main-tbody__room-service-info').append(
-        `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
-        <td class="main-td__food-type right-padding" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
-        <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">$${service.totalCost}</td>
-        </tr>`
-      )
-    })
+    $('.main-span__orders-date').text(date); 
+    if (roomServices.length > 0) {
+      $('.no-bookings-today').hide();
+      $('.main-tr__all-orders').show();
+      $('.main-span__orders-date').text(date)
+      roomServices.forEach(service => {
+        $('.main-tbody__room-service-info').append(
+          `<tr class="main-tr__food-menu" data-id="${service.totalCost}">
+          <td class="main-td__food-type right-padding" id="td-food-type" data-id="${service.totalCost}">${service.food}</td>
+          <td class="main-td__food-type" id="td-food-type" data-id="${service.totalCost}">$${service.totalCost}</td>
+          </tr>`
+        )
+      })
+    } else {
+      $('.no-bookings-today').show();
+      $('.main-tr__all-orders').hide();
+    }
   },
 
   displayCustomerOrderInfo(roomServices, name) {
     if (roomServices.length > 0) {
+      $('.main-tr__food-menu').empty()
       $('.orders-table-header').text('Room service orders')
       $('.main-table__customer-orders').show();
       roomServices.forEach(service => {
