@@ -79,6 +79,7 @@ const DOMupdates = {
   },
 
   displayRoomServices(roomServices) {
+    $('.main-table__food-menu').empty();
     $('.main-div__rooms-hide').hide();
     $('.food-hide').show();
     roomServices.forEach(service => {

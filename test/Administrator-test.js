@@ -11,7 +11,7 @@ import spies from 'chai-spies';
 import DOMupdates from '../src/DOMupdates.js'
 chai.use(spies);
 
-chai.spy.on(DOMupdates, ['displayCreateBookingBtn'], () => {});
+chai.spy.on(DOMupdates, ['displayCreateBookingBtn', 'displayCustomerOrderInfo', 'displayExpendituresOnDate', 'displayTotalExpenditures'], () => {});
 
 describe('Administrator', () => {
   let admin;
@@ -43,12 +43,5 @@ describe('Administrator', () => {
     admin.createNewRoomServiceOrder();
     expect(admin.currentCustomer.roomServiceInfo.length).to.equal(5);
   })
-
-  //it should be able to delete a booking
-
-  // it('should be able to book a room', () => {
-  //   admin.validateBooking('2019/09/28');
-  //   expect(DOMupdates.displayCreateBookingBtn).to.have.been.called(1);
-  // })
 
 })

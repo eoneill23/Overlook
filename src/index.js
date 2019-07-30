@@ -212,6 +212,8 @@ $('.main-button__confirm-booking').on('click', () => {
 
 $('.main-button__room-service-yes').on('click', () => {
   $('.main-div__rooms-hide').hide();
+  $('.main-para__room-service-confirmed').hide();
+  $('.main-para__booking-confirmation').hide();
   DOMupdates.displayRoomServices(admin.roomServices);
 })
 
@@ -257,8 +259,8 @@ function subtractRoomServiceCost(cost) {
 
 $('.main-button__confirm-room-service').on('click', () => {
   admin.createNewRoomServiceOrder();
-  $('.main-para__room-service-confirmed').hide();
   $('.main-button__confirm-room-service').hide();
+  $('.main-para__room-service-confirmed').show();
   $('.main-tbody__customer-info').html('');
   DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
   DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
@@ -319,6 +321,8 @@ $('.main-button__room-service-date').on('click', () => {
 })
 
 $('.main-button__room-service-no').on('click', () => {
+  $('.main-para__room-service-confirmed').hide();
+  $('.main-para__booking-confirmation').hide();
   DOMupdates.displayCustomerOrderInfo(admin.currentCustomer.roomServiceInfo, admin.currentCustomer.name);
   DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
   DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);

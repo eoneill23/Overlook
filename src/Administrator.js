@@ -37,7 +37,6 @@ class Administrator {
     })
     if (foundCustomer === undefined) {
       DOMupdates.displayNoExistingCustomerMsg(name)
-      // return false
     } else {
       let customerBookingData = this.findCustomerInfo(foundCustomer.id, 'bookings');
       let customerRoomServiceData = this.findCustomerInfo(foundCustomer.id, 'roomServices');
@@ -67,7 +66,6 @@ class Administrator {
   }
 
   createNewBooking(userId, roomNumber) {
-    console.log("THIS IS THE ROOM NUMBER", roomNumber)
     let newBooking = new Booking(userId, this.currentDate, roomNumber);
     this.currentCustomer.bookingInfo.push(newBooking);
     this.bookings.push(newBooking);
@@ -81,15 +79,6 @@ class Administrator {
     })
     this.potentialRoomServices = []
   }
-
-  // filterThroughCurrentCustomerInfo(date, property) {
-  //   return this[property].filter(property => property.date === date)
-  // }
-
-  //book/unbook room
-  //purchase room service
-  //upgrade a room
-  //calculate total bill
 }
 
 export default Administrator;

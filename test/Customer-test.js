@@ -40,11 +40,7 @@ describe('Hotel', () => {
 
 	it('should throw an error if a customer has no information', () => {
 		admin.createNewCustomer("Eric ONeill")
-		expect(admin.currentCustomer.returnRoomServiceCostOnDate("2019/09/26")).to.equal(null);
+		expect(admin.currentCustomer.returnRoomServiceCostOnDate("2019/09/26")).to.equal(0);
 	});
 
-  // it('should give a breakdown of dates and cost of room services', () => {
-	// 	hotel.currentCustomer.displayRoomServiceData();
-		
-  // })
 })

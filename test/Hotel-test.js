@@ -49,7 +49,7 @@ describe('Hotel', () => {
   })
 
   it('should show the date with the most available rooms', () => {
-    expect(admin.hotel.findDateWithMostAvailableRooms()).to.equal("2019/07/28");
+    expect(admin.hotel.findDateWithMostAvailableRooms()).to.equal("2019/07/31");
   })
 
   it('should show a list of available rooms on a specified date', () => {
