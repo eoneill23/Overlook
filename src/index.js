@@ -260,6 +260,7 @@ $('.main-button__confirm-room-service').on('click', () => {
   DOMupdates.displayExpendituresOnDate(admin.currentDate, admin.currentCustomer.returnRoomServiceCostOnDate(admin.currentDate), admin.currentCustomer.name);
   DOMupdates.displayTotalExpenditures(admin.currentCustomer.returnAllTimeRoomServiceCost(), admin.currentCustomer.name);
   DOMupdates.displayRoomServiceConfirmationMsg();
+  DOMupdates.displayCustomerBookingInfo(admin.currentCustomer.bookingInfo, admin.currentCustomer.name);
   $('.food-hide').fadeOut(2000);
   $('.rooms-general-info').hide();
   $('.rooms-customer-info').fadeIn(2000);
