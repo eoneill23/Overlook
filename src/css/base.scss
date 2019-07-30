@@ -65,7 +65,7 @@ nav {
 
 main {
   height: 91%;
-  
+
   .main-section {
     margin: 30px auto 0 auto;
     height: 90%;
@@ -79,20 +79,10 @@ main {
   }
 }
 
-
-.main-div__rooms-hide {
-  height: 100%;
-  padding: 30px;
-}
-
-.food-hide {
-  text-align: center;
-}
-
 .main-section__main-page {
   padding-top: 1px;
   text-align: center;
-
+  
   .front-page-container {
     display: flex;
     flex-direction: row;
@@ -100,16 +90,16 @@ main {
     justify-content: space-around;
     padding: 0 40px 40px 40px;
     width: 100%;
-
+    
     .main-h2 {
       font-size: 2em;
       margin: 0;
     }
-
+    
     .main-section-h3 {
       font-size: 1.3em;
     }
-
+    
     .main-container {
       border: 1px solid black;
       display: flex;
@@ -121,74 +111,85 @@ main {
   }
 }
 
-.rooms-general-info {
-  height: 100%;
 
-  .avail-rooms-container {
-    background-color: $primary-background; 
-    border: 1px solid black;
-    height: 300px;
-    padding: 10px 10px 10px 30px;
-    overflow: scroll;
-
-    .main-table__avail-rooms {
-      display: flex;
-      flex-direction: column;
-      
-      .main-th__avail-rooms {
-        display: flex;
-        justify-content: space-between;
-        width: 20%;
-      }
-      
-      .main-tr__avail-rooms {
-        display: flex;
-        justify-content: space-between;
-        list-style-type: none;
-        margin: 5px 0 5px 0;
-
-        &:hover {
-          background-color: gray;
-        }
-      }
-
-      .main-td__avail-rooms,
-      .main-td__avail-rooms2 {
-        display: flex;
-        justify-content: space-between;
-        font-size: 1em;
-        text-align: center;
-        width: 20%;
-      }
-    }
-
-    .spec-date-back-btn {
-      margin: 15px 0 0 50%;
-    }
-  }
-}
-
-.room-service-container {
-  align-items: center;
-  background-color: $primary-background;
-  border: 1px solid black;
-  height: 300px;
-  margin: auto;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  margin-top: 5%;
-  opacity: 1;
-  overflow: scroll;
-  text-align: center;
-  width: 50%;
-
-  .right-padding {
-    padding-right: 30px;
-  }
-}
 
 .main-section__rooms-page {
+
+  .main-div__rooms-hide {
+    height: 100%;
+    padding: 30px;
+  }
+
+  .food-hide {
+    text-align: center;
+  }
+  
+  .rooms-general-info {
+    height: 100%;
+    
+    .avail-rooms-container {
+      background-color: $primary-background; 
+      border: 1px solid black;
+      height: 300px;
+      padding: 10px 10px 10px 30px;
+      overflow: scroll;
+  
+      .main-table__avail-rooms {
+        display: flex;
+        flex-direction: column;
+        
+        .main-th__avail-rooms {
+          display: flex;
+          justify-content: space-between;
+          width: 20%;
+        }
+        
+        .main-tr__avail-rooms {
+          display: flex;
+          justify-content: space-between;
+          list-style-type: none;
+          margin: 5px 0 5px 0;
+  
+          &:hover {
+            background-color: gray;
+          }
+        }
+  
+        .main-td__avail-rooms,
+        .main-td__avail-rooms2 {
+          display: flex;
+          justify-content: space-between;
+          font-size: 1em;
+          text-align: center;
+          width: 20%;
+        }
+      }
+  
+      .spec-date-back-btn {
+        margin: 15px 0 0 50%;
+      }
+    }
+  }
+
+  .room-service-container {
+    align-items: center;
+    background-color: $primary-background;
+    border: 1px solid black;
+    height: 300px;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    opacity: 1;
+    overflow: scroll;
+    text-align: center;
+    width: 50%;
+  
+    .right-padding {
+      padding-right: 30px;
+    }
+  }
 
   .room-content-container {
     display: flex;
@@ -324,6 +325,12 @@ main {
     .main-button__confirm-booking {
       margin: auto;
     }
+  }
+
+  .bookings-btns-container {
+    margin: auto;
+    text-align: center;
+    width: 90%;
   }
 }
 
