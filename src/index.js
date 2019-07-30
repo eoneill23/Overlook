@@ -130,7 +130,6 @@ $('.nav-button__orders-tab').on('click', () => {
     $('.orders-general-info').hide();
     $('.orders-customer-info').show();
     $('.orders-span__customer-name').text(admin.currentCustomer.name);
-    // $('.main-tbody__customer-info').html('');
   } else {
     $('.orders-general-info').show();
     $('.orders-customer-info').hide();
@@ -150,7 +149,6 @@ $('.nav-button__customer-tab').on('click', () => {
 $('.main-button__existingCustomer-search').on('click', () => {
   event.preventDefault();
   let name = $('.main-input__existingCustomer-search').val();
-  console.log(admin.hotel)
   admin.instantiateExistingCustomer(name);
   $('.main-input__existingCustomer-search').val('');
 })
@@ -204,7 +202,6 @@ $('.main-button__confirm-booking').on('click', () => {
     $('.main-button__confirm-booking').hide();
     $('.main-button__room-service-yes').show();
     $('.main-button__room-service-no').show();
-    console.log('THIS IS THE POTENTIAL BOOKING', admin.potentialBooking)
     admin.createNewBooking(admin.currentCustomer.id, admin.potentialBooking.number);
     DOMupdates.bookingConfirmationMessage(admin.potentialBooking);
     admin.potentialBooking = '';
@@ -215,8 +212,6 @@ $('.main-button__confirm-booking').on('click', () => {
 
 $('.main-button__room-service-yes').on('click', () => {
   $('.main-div__rooms-hide').hide();
-  // let uniqueFood = returnUniqueFoodItems()
-  // console.log(uniqueFood)
   DOMupdates.displayRoomServices(admin.roomServices);
 })
 

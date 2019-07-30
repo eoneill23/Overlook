@@ -36,11 +36,6 @@ const DOMupdates = {
     $('.header-hide').show();
   },
 
-  displayCreateBookingBtn() {
-    //paragraph.show() that says 'you currently don't have a booking today. would you like to create one?
-    //$(.main-button__show-booking).show()
-  },
-
   appendAvailableRooms(availableRooms, date, className) {
     availableRooms.forEach(room => {
       $('.main-tbody__avail-rooms').append(
@@ -106,8 +101,6 @@ const DOMupdates = {
   displayRoomServiceConfirmationMsg() {
     $('.main-para__room-service-confirmation-msg').hide();
     $('.main-para__room-service-confirmed').show();
-    //hide the booking/room service screen
-    //fade in current customer data
   },
 
   displayCustomerHasBookingMsg(name) {
