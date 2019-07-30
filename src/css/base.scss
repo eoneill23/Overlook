@@ -341,24 +341,25 @@ main {
     text-align: center;
     width: 90%;
   }
-}
 
-.main-div__table-header-container {
-  display: flex;
-
-  .inputs,
-  .main-para__filter-room-type {
-    margin-top: 22px;
-  }
+  .main-div__table-header-container {
+    display: flex;
   
-  .inputs {
-    margin-left: 10px;
-  }
-
-  .main-para__filter-room-type {
-    margin-left: 70px;
+    .inputs,
+    .main-para__filter-room-type {
+      margin-top: 22px;
+    }
+    
+    .inputs {
+      margin-left: 10px;
+    }
+  
+    .main-para__filter-room-type {
+      margin-left: 70px;
+    }
   }
 }
+
 
 .main-form__existingCustomer-search {
   display: flex;
@@ -444,47 +445,47 @@ main {
       width: 250px;
     }
   }
-}
 
-.orders-customer-info {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-
-  .orders-customer-info-container {
-    display: flex;
-    flex-direction: row;
+  .orders-customer-info {
     height: 100%;
-    justify-content: space-between;
-    padding: 0 20px 0 20px;
     width: 100%;
-  }
-
-  .orders-customer {
-    background-color: $primary-background;
-    border: 1px solid black;
-    height: 50%;
-    width: 30%;
-  }
-
-  .main-table__customer-orders {
-    margin: 0 auto 0 auto;
-  }
-
-  .orders-td__food-type {
-    margin: 5px;
-    width: 20%;
-  }
-
-  .service-food {
-    width: 50%
-  }
-
-  .orders-h3 {
-    margin-bottom: 30px;
-  }
-
-  .orders-all-cost {
-    margin-top: 52px;
+    text-align: center;
+  
+    .orders-customer-info-container {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      justify-content: space-between;
+      padding: 0 20px 0 20px;
+      width: 100%;
+    }
+  
+    .orders-customer {
+      background-color: $primary-background;
+      border: 1px solid black;
+      height: 50%;
+      width: 30%;
+    }
+  
+    .main-table__customer-orders {
+      margin: 0 auto 0 auto;
+    }
+  
+    .orders-td__food-type {
+      margin: 5px;
+      width: 20%;
+    }
+  
+    .service-food {
+      width: 50%
+    }
+  
+    .orders-h3 {
+      margin-bottom: 30px;
+    }
+  
+    .orders-all-cost {
+      margin-top: 52px;
+    }
   }
 }
