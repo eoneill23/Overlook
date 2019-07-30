@@ -42,6 +42,10 @@ header {
   .header-h2__current-customer {
     margin: 5px 0 0 0;
   }
+
+  .header-span__date-today {
+    padding-top: 7px;
+  }
 }
 
 nav {
@@ -169,59 +173,64 @@ main {
         margin: 15px 0 0 50%;
       }
     }
-  }
 
-  .room-service-container {
-    align-items: center;
-    background-color: $primary-background;
-    border: 1px solid black;
-    height: 300px;
-    margin: auto;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    opacity: 1;
-    overflow: scroll;
-    text-align: center;
-    width: 50%;
-  
-    .right-padding {
-      padding-right: 30px;
+    .room-service-container {
+      align-items: center;
+      background-color: $primary-background;
+      border: 1px solid black;
+      height: 300px;
+      margin: auto;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      margin-top: 2%;
+      opacity: 1;
+      overflow: scroll;
+      text-align: center;
+      width: 50%;
+    
+      .right-padding {
+        padding-right: 30px;
+      }
     }
-  }
 
-  .room-content-container {
-    display: flex;
-    height: 65%;
-    justify-content: space-around;
-    padding: 40px;
-    width: 100%;
-  }
+    .room-content-container {
+      display: flex;
+      height: 65%;
+      justify-content: space-around;
+      padding: 40px;
+      width: 100%;
+    }
 
-  .main-span__most-rooms-avail,
-  .main-span__most-pop-book-date {
-    font-size: 2em;
-  }
+    .main-span__most-rooms-avail,
+    .main-span__most-pop-book-date {
+      font-size: 2em;
+    }
 
-  .main-h3__most-pop-book-date,
-  .main-h3_most-rooms-avail {
-    font-size: 1.5em;
-  }
+    .main-h3__most-pop-book-date,
+    .main-h3_most-rooms-avail {
+      font-size: 1.5em;
+    }
 
-  .main-section__most-pop-book-date,
-  .main-section__most-rooms-avail {
-    border: 1px solid black;
-    height: 100%;
-    padding-bottom: 20px;
-    text-align: center;
-    width: 45%;
-  }
+    .main-section__most-pop-book-date,
+    .main-section__most-rooms-avail {
+      border: 1px solid black;
+      height: 100%;
+      padding-bottom: 20px;
+      text-align: center;
+      width: 45%;
+    }
 
-  .main-div__input-wrangler {
-    display: flex;
-    flex: row;
-    height: 200px;
+    .main-div__input-wrangler {
+      display: flex;
+      flex: row;
+      height: 200px;
+    }
+
+  }
+  
+  .no-bookings-customer {
+    color: red;
   }
 
   .room-input-container,
