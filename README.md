@@ -7,7 +7,7 @@ For this project, we were tasked with creating a hotel management application fo
   * Utilize OOP to design and build the application.
   * Create comprehensive testing suite to test all functionality on a client-side application.
   * Use array and object prototype methods to manipulate data.
-  * Use a fetch API to pull data from a server.
+  * Use a Fetch API to pull data from a server.
   
 ## Install/Setup instructions
  * Clone the repo.
