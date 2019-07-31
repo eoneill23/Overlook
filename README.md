@@ -13,15 +13,18 @@ For this project, we were tasked with creating a hotel management application fo
  * Clone the repo.
  * Run `npm install` to install all of the necessary dependencies.
  * View the live version of your code on a local host by running `npm run start`.
- 
- ## Built with:
- * jQuery
- * Mocha & Chai
- * Sass
- * Webpack
   
 ## Demonstration:
 ![Overlook_gif](./src/images/overlook-gif.gif)
+
+ ## Built with:
+ * JavaScript
+ * jQuery
+ * Mocha
+ * Chai
+ * Sass
+ * Webpack
+ * HTML
 
 ### Authors:
 * Eric O'Neill ([eoneill23](https://github.com/eoneill23))
