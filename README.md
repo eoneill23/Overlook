@@ -1,7 +1,7 @@
 # Overlook hotel application
 
 ## Summary
-For this project, we were tasked with creating a hotel management application for hotel staff.
+Overlook is a hotel management application built over the course of five days as a solo project.
 
 ## Getting started
  * Clone down the repo and install the dependencies with npm install.
